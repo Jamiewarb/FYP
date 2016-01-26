@@ -1,0 +1,214 @@
+\documentclass[11pt,openright,a4paper]{report}
+%%
+%% This document template assumes you will use pdflatex.  If you are using
+%% latex and dvipdfm to translate to pdf, insert dvipdfm into the options.
+%%
+
+%% Stuff included by Jamie
+\usepackage{pifont}
+\usepackage{float}
+\usepackage{enumitem}
+\restylefloat{table}
+
+\include{DissertationDefs}    %% These are the includes required for the doc 
+
+\graphicspath{ {images/} }
+
+
+\title{Shnip.it: A Dynamic, Collaborative Code Snippet Repository}
+\author{Jamie Warburton}
+\date{Bachelor of Science in Computer Science with Honours\\The University of Bath\\October 2015}
+
+
+\begin{document}
+
+
+% Set this to the language you want to use in your code listings (if any)
+\lstset{language=Java,breaklines,breakatwhitespace,basicstyle=\small}
+
+
+\setcounter{page}{0}
+\pagenumbering{roman}
+
+
+\maketitle
+\newpage
+
+
+% Set this to the number of years consultation prohibition, or 0 if no limit
+\consultation{0}
+\newpage
+
+
+\declaration{Shnip.it: A Dynamic, Collaborative Code Snippet Repository}{Jamie Warburton}
+\newpage
+
+
+\abstract
+Your abstract should appear here.  An abstract is a short
+paragraph describing the aims of the project, what was
+achieved and what contributions it has made.
+\newpage
+
+
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+
+\chapter*{Acknowledgements}
+Add any acknowledgements here.
+\newpage
+
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+
+\chapter{Detailed Problem Overview}
+\section{Problem Knowledge}
+Within this section, context is given to the problem by means of providing domain knowledge, which is necessary before describing the problem itself. Reusable code is discussed, as well as the use of repositories to store such code. 
+
+\subsection{Code Reuse}
+Writing reusable code is the act of developing (usually) modular code with two goals in mind: how it fits in to the current project, and how it can be used in future projects.
+Therefore, code reuse is specifically using existing code to produce new software, and reusability is the indicator of how likely it is that a section of code can be reused \cite{Frakes2005}. 
+Following the mind-set of reusable code allows for stable subsystems to be used as the foundations on which more complex systems can be built on top, allowing them to develop faster \cite{Yunwen2000}.
+Ideal reusable code would have already been developed and tested for accuracy and completeness, allowing the developer to trust in the code and not need to re-develop or test their own version of this code \cite{Grinter2001}. Therefore, software reuse can improve on the final quality of the software, as well as the developer’s productivity.
+
+\subsection{A Brief History of Code Reuse}
+It is generally understood that code reuse has been around since programming began: Programmers have been swapping code for as long as there was code to swap; but research into the field can be mostly traced to Douglas McIlroy in 1968, and his proposal for the software industry to be based on reusable components \cite{Naur1969,Jacobson1997}. 
+Modern day reuse environments have a focus on repurposing existing software assets, and writing or creating those assets to be as reusable as possible. These assets extend further than just code, and include models, requirements, designs and tests \cite{Grinter2001}, or they can be as simple as README files.
+
+\subsection{Cross Project Code Reuse}
+Software developers, notably those that work on smaller day-to-day projects such as web development, are often faced with repeatedly writing similar or identical code when beginning new projects, or creating congruent modules. Furthermore, developers often have resources they wish to access and use regularly, such as normalise.css in web development (for forcing the same default behaviour between all modern browsers).
+Despite this commonality, some developers continue to write the same code, wasting development time and effort on each occasion they reproduce this code. 
+Others store this code in files on their local machine or in a cloud service, often categorising snippets by use of named folders. This code then remains static, un-shareable and not available for peer review. 
+With the ever rapid advancements in software development and individual language evolutions, code stored in this way is prone to going stale and obsolete. This leads us on to talk about code repositories.
+
+\subsection{Code Repositories}
+Code repositories are databases tasked with the management of source code, and can be modelled in a variety of ways, such as relational or object-oriented \cite{Cox1999}.
+These repositories are often project orientated, such as with an SVN or Git, where source code is uploaded in entirety and act as a version control for, or snapshots of, a project.
+Other repositories are used to store modularised code for reusing in later projects. This paper focuses more on these types of repositories, specifically when using them for short, cross-project, recurrent snippets.
+
+\section{Problem Description}
+When looking at these cross-project repositories, a number of issues stand out in relation to how the developers use and interact with the repositories and the reusable code itself. The first and foremost is when developers don’t reuse code at all, and instead opt to continually rewrite it each time.
+Next, then, are personal repositories: A user may write a piece of code and store it for reuse, but this code may not be reviewed in the future, leading to stale code. Furthermore, there is no visibility of the code to peers, removing the possibility of peer review or improvement.
+The ability to effectively search and sort within the repository is key to its effectiveness, and often personal repositories don’t have adequate features for this. This dampens the possibility of finding code even without knowing it exists in the repository.
+Finally, the issue of the repository evolving needs to be addressed. As languages evolve, so too must the repository to adapt to the needs of the developer. Often this priority takes a backseat and the repository itself may become inefficient. Therefore, we have identified five problems with developers, code reuse and the repositories itself.
+
+\begin{itemize}
+\item The developer may not reuse at all, and so waste time rewriting code.
+\item The developer may not update code in line with language advancements, leading to stale code. 
+\item The reusable code may have a lack of peer review in a personal or limited use repository.
+\item The repository may not employ effective searching and sorting methods, so the developer may not find the code they require.
+\item Maintaining/modifying the repository itself in response to the evolving needs of the software developer(s). 
+\end{itemize}
+
+
+\include{LitTechSurvey}
+
+
+%You will wish to cite authors like \cite{latex} or \cite{btxdoc}.  Alternate
+%commands are used to cite \citeasnoun{latex} as a noun, or cite
+%\possessivecite{latex} work possessively, or add text to the citation, 
+%\citeaffixed{latex}{e.g.}.
+
+
+%%
+%% NOTE: Replace the following with chapters that are appropriate for your
+%%       style of project.  It is unlikely these will fit your project perfectly.
+%%
+
+\chapter{Requirements}
+If you are doing a primarily software development project, this is the
+chapter in which you review the requirements decisions and
+critique the requirements process.
+
+
+\chapter{Design}
+This is the chapter in which you review your design decisions at various
+levels and critique the design process.
+
+
+\chapter{Implementation and Testing}
+This is the chapter in which you review the implementation and testing
+decisions and issues, and critique these processes.
+
+Code can be output inline using \verb@\lstinline|some code|@.  For example,
+this code is inline: \lstinline|public static int example = 0;|  (I have
+used the character \verb@|@ as a delimiter, but any non-reserved character
+not in the code text can be used.)
+
+Code snippets can be output using the \verb|\begin{lstlisting} ... \end{lstlisting}|
+environment with the code given in the environment.  For
+example, consider listing \ref{Example-Code}, below.
+
+\begin{lstlisting}[breaklines,breakatwhitespace,caption={Example code},label=Example-Code]
+public static void main() {
+
+  System.out.println("Hello World");
+
+}
+\end{lstlisting}
+
+Code listings are produced using the package ``Listings''.  This has many
+useful options, so have a look at the package documentation for further
+ideas.
+
+
+\chapter{Results}
+This is the chapter in which you review the outcomes, and
+critique the outcomes process.  You may include user evaluation here
+too.
+
+
+%%
+%% Now we are back to the standard project contents that you should include
+%%
+
+\chapter{Conclusions}
+%% Uncomment this to include a separate tex file wih the conclusion contents
+%\include{conclusion.tex}
+
+This is the chapter in which you review the major achievements in the
+light of your original objectives, critique the process, critique your
+own learning and identify possible future work.
+
+
+\bibliography{BibFile}
+
+
+\appendix
+
+%%
+%% Use the appendix for major chunks of detailed work, such as these. Tailor
+%% these to your own requirements
+%%
+
+\chapter{Design Diagrams}
+
+\chapter{User Documentation}
+
+\chapter{Raw results output}
+
+\chapter{Code}
+
+%%
+%% NOTE that for this to typeset correctly, ensure you use the pdflatex
+%%      command in preference to the latex command.  If you do not have
+%%      the pdflatex command, you will need to remove the landscape and
+%%      multicols tags and just make do with single column listing output
+%%
+
+\begin{landscape}
+\begin{multicols}{2}
+\section{File: yourCodeFile.java}
+\lstinputlisting[basicstyle=\scriptsize]{yourCodeFile.java}
+\end{multicols}
+\end{landscape}
+
+\end{document}
