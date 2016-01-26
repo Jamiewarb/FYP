@@ -1,0 +1,138 @@
+/* Import this file using the following HTML or equivalent:
+ * <link href="resources/css/snippet.css" media="screen, projection" rel="stylesheet" type="text/css"> */
+
+@import "partials/variables";
+@import "partials/fonts";
+
+a.user-link {
+	color: inherit;
+	&:hover {
+		color: #f6f6f6;
+		> .header-right {
+			background-color: #4aa1db;
+			.info-container h4 small {
+				color: #fff !important;
+			}
+		}
+	}
+}
+
+.edit-snippet-header {
+	color: #333;
+	.input-lang {
+		float: left;
+		font-size: 12px;
+		margin: 12px 10px 0 10px;
+		background-color: #84c1e9;
+		border-radius: 5px;
+		padding: 1px 6px;
+	}
+	.input-title {
+		float: left;
+		width: 380px;
+		text-align: center;
+		font-size: 17px;
+		margin: 9px 10px 0 155px;
+	}
+	.input-keys {
+		float: right;
+		width: 180px;
+		text-align: right;
+		font-size: 14px;
+		margin: 10px 10px 0 5px;
+	}
+	input {
+		border: 1px solid #aaa;
+		border-radius: 5px;
+		color: #333;
+		padding: 4px 10px;
+	}
+}
+
+.snippet-headbar {
+	border: 1px solid #c6c6c6;
+	border-bottom: 0;
+	background: #eee;
+	height: 20px;
+}
+
+.edit-snippet-body {
+	border: 1px solid #c6c6c6;
+	border-top: 0;
+	background: #eee;
+	margin-bottom: 50px;
+	position: relative;
+	pre {
+		border: 0;
+		width:100%;
+		background-color: #eee;
+		padding: 10px;
+		border-radius: 0;
+		margin: 0;
+	}
+	.textarea-comment {
+		font-style: italic;
+		min-height:90px;
+		color: #888;
+		font-family: 'Source Code Pro', Consolas, Monaco, "Andale Mono", monospace;
+		height: auto;
+		float: left;
+	}
+	.textarea-body {
+		font-size: 15px !important;
+		min-height:350px;
+		overflow: scroll;
+		color: #111;
+		font-family: 'Source Code Pro', Consolas, Monaco, "Andale Mono", monospace;
+	}
+}
+
+#func-headbar {
+	background-color: #64b0e2;
+	float: right;
+	width: 196px;
+	border-bottom-left-radius: 5px;
+}
+
+.functions-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-bottom-left-radius: 5px;
+}
+
+.functions-square {
+	text-align: center;
+	font-size: 30px;
+	width: 49px;
+	height: 46px;
+	float: left;
+	margin: 0;
+	padding-top: 8px;
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #333;
+	}
+}
+
+.function-star.fav-on {
+	color: #fff700;
+}
+
+@media (min-width: 768px) {
+	.textarea-comment {
+		padding-right: 108px !important;
+	}
+	#func-headbar {
+		display: none;
+	}
+}
+
+@media (max-width: 767px) {
+	.functions-right#func-corner {
+		display: none;
+	}
+}

@@ -1,0 +1,125 @@
+/* Import this file using the following HTML or equivalent:
+ * <link href="resources/css/snippet.css" media="screen, projection" rel="stylesheet" type="text/css"> */
+/* __Palette__
+ *
+ * Grey Background - #ddd
+ * Black - #333
+ * Main Blue #4aa1db
+ * Gradient Blue - background: linear-gradient(to bottom, #4aa1db 0%, #64b0e2 100%);
+ * Highlight Blue - #84c1e9
+ * Background Highlight Blue - #d9edf7
+ * White Panel - #eee
+ * 
+ * Fonts:
+ * #111 or #333 for black
+ * #888 or #999 for grey, depending on background
+ * #fff for white
+ *
+ */
+/* line 6, ../sass/login.scss */
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 5px solid #4aa1db;
+  box-shadow: 0 3px 0 #dfdfdf;
+  float: left;
+  vertical-align: top;
+}
+
+/* line 17, ../sass/login.scss */
+.profile-main-info {
+  list-style: none;
+  margin-left: -25px;
+  float: left;
+}
+/* line 21, ../sass/login.scss */
+.profile-main-info h3 {
+  margin-top: 10px;
+}
+
+/* line 26, ../sass/login.scss */
+.snip-count {
+  border-radius: 5px;
+  padding: 2px 5px;
+  background-color: #84c1e9;
+  display: inline;
+}
+
+/* line 33, ../sass/login.scss */
+.profile-main-info a {
+  color: inherit;
+}
+/* line 36, ../sass/login.scss */
+.profile-main-info a .snip-count:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+/* line 42, ../sass/login.scss */
+.profile-latest-snippets {
+  margin: 14px 10px 0 0;
+}
+
+/* line 46, ../sass/login.scss */
+.profile-latest-view-all {
+  float: right;
+  font-size: 12px;
+  margin-top: 5px;
+  color: #4aa1db;
+}
+
+/* line 53, ../sass/login.scss */
+.profile-latest-list {
+  list-style: none;
+  margin-left: -40px;
+}
+/* line 56, ../sass/login.scss */
+.profile-latest-list li {
+  padding: 2px 4px;
+}
+
+/* line 61, ../sass/login.scss */
+.profile-edit-text {
+  margin-left: 42px;
+}
+/* line 63, ../sass/login.scss */
+.profile-edit-text h5 {
+  margin-left: 5px;
+}
+
+/* line 68, ../sass/login.scss */
+.profile-bio-section {
+  margin-top: 35px;
+}
+
+/* line 72, ../sass/login.scss */
+.profile-bio {
+  width: 100%;
+  height: 163px;
+  display: block;
+  border: 1px solid #ccc;
+  background-color: #e6e6e6;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  box-shadow: inset 1px 1px 1px #c6c6c6;
+}
+
+/* line 84, ../sass/login.scss */
+.a-blk:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+/* line 89, ../sass/login.scss */
+.lang {
+  color: #fff;
+}
+
+/* line 93, ../sass/login.scss */
+a:hover > .lang {
+  background-color: #333;
+  color: #fff;
+}
