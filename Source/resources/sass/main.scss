@@ -15,6 +15,16 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
 }
 
+h3 small {
+	float: right;
+}
+
+h3 small a.viewall {
+	position: relative;
+	top: 13px;
+	font-size: 85%;
+}
+
 .btn-primary {
 	background: #4aa1db;
 	border: 1px solid #4aa1db;
@@ -143,6 +153,18 @@ ul.no-bullet {
 
 .page-title {
 	padding: 0px 0 5px;
+	a {
+		color: #333;
+		cursor: pointer;
+	}
+	a:hover {
+		background-color: rgba(74,161,219,0.25);
+		text-decoration: none;
+	}
+	a:active {
+		background-color: rgba(74,161,219,0.5);
+		text-decoration: none;
+	}
 }
 
 /* Snippet list used when displaying list of snippets, such as home page or related snippets */
@@ -204,6 +226,17 @@ li .saved-by {
 
 .snippet-subline {
 	font-size: 85%;
+}
+
+.snippet-byline {
+	font-style: italic;
+	font-size: 80%;
+	a {
+		color: #337ab7 !important;
+	}
+}
+
+.snippet-subline, .snippet-byline {
 	margin-left: 20px;
 	white-space: nowrap;
 	max-width: 100%;

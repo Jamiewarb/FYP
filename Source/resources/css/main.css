@@ -31,19 +31,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 18, ../sass/main.scss */
+h3 small {
+  float: right;
+}
+
+/* line 22, ../sass/main.scss */
+h3 small a.viewall {
+  position: relative;
+  top: 13px;
+  font-size: 85%;
+}
+
+/* line 28, ../sass/main.scss */
 .btn-primary {
   background: #4aa1db;
   border: 1px solid #4aa1db;
 }
 
-/* line 23, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 ul.no-bullet {
   list-style: none;
 }
 
 /* Elements CSS End */
 /* Navbar CSS Start */
-/* line 32, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 .navbar {
   border: 0;
   max-width: 980px;
@@ -52,41 +64,41 @@ ul.no-bullet {
   border-top-right-radius: 0;
   background: linear-gradient(to bottom, #4aa1db 0%, #64b0e2 100%);
 }
-/* line 40, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 .navbar ul li b.caret {
   border-top-color: #fff;
   border-bottom-color: #fff;
 }
-/* line 45, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .navbar ul ul li a {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 62, ../sass/main.scss */
 .navbar-brand {
   font-family: 'McLaren', cursive;
   width: 90px;
 }
 
-/* line 57, ../sass/main.scss */
+/* line 67, ../sass/main.scss */
 .navbar ul li a, .navbar-brand {
   color: #fff !important;
 }
 
-/* line 61, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .navbar ul li a:hover, .navbar ul li:hover > a, .navbar-brand:hover, .navbar-default .navbar-nav > .open > a {
   color: #333 !important;
   background-color: #fff !important;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .navbar ul li a:hover > b.caret, .navbar ul li:hover > a b.caret, .navbar-default .navbar-nav > .open > a b.caret {
   border-top-color: #333 !important;
   border-bottom-color: #333 !important;
 }
 
-/* line 71, ../sass/main.scss */
+/* line 81, ../sass/main.scss */
 .dropdown-menu {
   overflow: hidden;
   border-bottom-left-radius: 5px;
@@ -95,36 +107,36 @@ ul.no-bullet {
   padding: 0;
   background-color: #64b0e2;
 }
-/* line 79, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 .dropdown-menu > li > a {
   background-color: #64b0e2;
 }
-/* line 82, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .dropdown-menu .divider {
   background-color: #84c1e9;
 }
 
-/* line 88, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 .navbar-default .navbar-toggle {
   border-color: #eee;
 }
-/* line 91, ../sass/main.scss */
+/* line 101, ../sass/main.scss */
 .navbar-default .navbar-toggle:hover {
   background-color: #333;
   border-color: #333;
 }
-/* line 95, ../sass/main.scss */
+/* line 105, ../sass/main.scss */
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #fff;
 }
-/* line 98, ../sass/main.scss */
+/* line 108, ../sass/main.scss */
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
   border: 0;
 }
 
 /* Navbar CSS End */
 /* Main Container/Row/Col CSS */
-/* line 106, ../sass/main.scss */
+/* line 116, ../sass/main.scss */
 .filled {
   background: #eee;
   border-radius: 5px;
@@ -135,17 +147,17 @@ ul.no-bullet {
   margin: 0 auto;
 }
 
-/* line 116, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 .container.no-pad {
   padding: 0;
 }
 
-/* line 120, ../sass/main.scss */
+/* line 130, ../sass/main.scss */
 .col-thicksep {
   border-bottom: 5px solid #000;
 }
 
-/* line 124, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 .panel .panel-heading a {
   float: right;
   font-size: 80%;
@@ -153,88 +165,117 @@ ul.no-bullet {
   top: -10px;
 }
 
-/* line 131, ../sass/main.scss */
+/* line 141, ../sass/main.scss */
 .help-block .forgot-pw {
   font-size: 70%;
   margin-top: -15px !important;
 }
 
-/* line 135, ../sass/main.scss */
+/* line 145, ../sass/main.scss */
 .input-group.spacer {
   margin-bottom: 15px;
 }
 
 /* Main Container/Row/Col CSS End */
 /* Content CSS */
-/* line 144, ../sass/main.scss */
+/* line 154, ../sass/main.scss */
 .page-title {
   padding: 0px 0 5px;
 }
+/* line 156, ../sass/main.scss */
+.page-title a {
+  color: #333;
+  cursor: pointer;
+}
+/* line 160, ../sass/main.scss */
+.page-title a:hover {
+  background-color: rgba(74, 161, 219, 0.25);
+  text-decoration: none;
+}
+/* line 164, ../sass/main.scss */
+.page-title a:active {
+  background-color: rgba(74, 161, 219, 0.5);
+  text-decoration: none;
+}
 
 /* Snippet list used when displaying list of snippets, such as home page or related snippets */
-/* line 150, ../sass/main.scss */
+/* line 172, ../sass/main.scss */
 ul.snippet-list {
   list-style: none;
   margin: 10px;
   padding-left: 0;
 }
-/* line 155, ../sass/main.scss */
+/* line 177, ../sass/main.scss */
 ul.snippet-list li {
   position: relative;
   margin-bottom: 10px;
 }
 
-/* line 163, ../sass/main.scss */
+/* line 185, ../sass/main.scss */
 ul.snippet-list a, span.tags a {
   color: #333;
   cursor: pointer;
 }
-/* line 167, ../sass/main.scss */
+/* line 189, ../sass/main.scss */
 ul.snippet-list a:hover, span.tags a:hover {
   background-color: rgba(74, 161, 219, 0.25);
   text-decoration: none;
 }
-/* line 171, ../sass/main.scss */
+/* line 193, ../sass/main.scss */
 ul.snippet-list a:active, span.tags a:active {
   background-color: rgba(74, 161, 219, 0.5);
   text-decoration: none;
 }
 
-/* line 177, ../sass/main.scss */
+/* line 199, ../sass/main.scss */
 .profile-latest-snippets ul.snippet-list {
   margin-left: 0;
 }
 
-/* line 182, ../sass/main.scss */
+/* line 204, ../sass/main.scss */
 i.fav-snippet {
   margin-right: 5px;
   cursor: pointer;
   color: #e5b500;
 }
-/* line 186, ../sass/main.scss */
+/* line 208, ../sass/main.scss */
 i.fav-snippet.inactive {
   color: #aaa;
 }
-/* line 189, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 i.fav-snippet.inactive:hover {
   color: #000;
 }
 
-/* line 195, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 li .saved-by {
   color: #999;
 }
 
-/* line 199, ../sass/main.scss */
+/* line 221, ../sass/main.scss */
 .snippet-titleline {
   overflow: hidden;
   white-space: nowrap;
   max-width: 100%;
 }
 
-/* line 205, ../sass/main.scss */
+/* line 227, ../sass/main.scss */
 .snippet-subline {
   font-size: 85%;
+}
+
+/* line 231, ../sass/main.scss */
+.snippet-byline {
+  font-style: italic;
+  font-size: 80%;
+}
+/* line 234, ../sass/main.scss */
+.snippet-byline a {
+  color: #337ab7 !important;
+}
+
+/* line 239, ../sass/main.scss */
+.snippet-subline, .snippet-byline {
   margin-left: 20px;
   white-space: nowrap;
   max-width: 100%;
@@ -242,7 +283,7 @@ li .saved-by {
 
 /* Content CSS End */
 /* Lang CSS and Colours */
-/* line 217, ../sass/main.scss */
+/* line 250, ../sass/main.scss */
 span.lang, span.count {
   font-size: 90%;
   font-weight: 700;
@@ -254,46 +295,46 @@ span.lang, span.count {
   background-color: #bbb;
 }
 
-/* line 228, ../sass/main.scss */
+/* line 261, ../sass/main.scss */
 span.lang, span.count, span.tags {
   font-family: "Lato", cursive, sans-serif;
 }
 
-/* line 232, ../sass/main.scss */
+/* line 265, ../sass/main.scss */
 .lang.html {
   /* Blue */
   background-color: #8ecae8;
 }
 
-/* line 237, ../sass/main.scss */
+/* line 270, ../sass/main.scss */
 .lang.ruby {
   /* Red */
   background-color: #ff9382;
 }
 
-/* line 242, ../sass/main.scss */
+/* line 275, ../sass/main.scss */
 .lang.css {
   background-color: #e898dd;
 }
 
-/* line 246, ../sass/main.scss */
+/* line 279, ../sass/main.scss */
 .lang.php {
   background-color: #a3e89c;
 }
 
-/* line 250, ../sass/main.scss */
+/* line 283, ../sass/main.scss */
 .lang.java {
   background-color: #e8e285;
 }
 
-/* line 254, ../sass/main.scss */
+/* line 287, ../sass/main.scss */
 .lang.js {
   background-color: #d3e890;
 }
 
 /* Lang CSS and Colours End */
 /* Misc CSS Start */
-/* line 263, ../sass/main.scss */
+/* line 296, ../sass/main.scss */
 .clear {
   clear: both;
 }
@@ -301,14 +342,14 @@ span.lang, span.count, span.tags {
 /* Misc CSS End */
 /* Media CSS */
 @media (min-width: 1200px) {
-  /* line 273, ../sass/main.scss */
+  /* line 306, ../sass/main.scss */
   .container {
     max-width: 980px;
   }
 }
 /* Media CSS Ends */
 /* Colour Themes Start */
-/* line 283, ../sass/main.scss */
+/* line 316, ../sass/main.scss */
 hr.colorgraph {
   height: 7px;
   border-top: 0;
@@ -316,7 +357,7 @@ hr.colorgraph {
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
-/* line 290, ../sass/main.scss */
+/* line 323, ../sass/main.scss */
 .user-image {
   width: 110px;
   height: 110px;
@@ -329,12 +370,12 @@ hr.colorgraph {
   margin-top: -5px;
 }
 
-/* line 302, ../sass/main.scss */
+/* line 335, ../sass/main.scss */
 .panel .panel-heading a {
   color: #d9edf7;
 }
 
-/* line 306, ../sass/main.scss */
+/* line 339, ../sass/main.scss */
 header.blue, .panel.blue .panel-heading {
   color: #fff;
   text-align: center;
@@ -344,19 +385,19 @@ header.blue, .panel.blue .panel-heading {
   border: 0;
 }
 
-/* line 315, ../sass/main.scss */
+/* line 348, ../sass/main.scss */
 header.blue h3, .panel.blue h3 {
   color: #fff;
   padding-top: 6px;
 }
 
-/* line 320, ../sass/main.scss */
+/* line 353, ../sass/main.scss */
 header.blue h3 small {
   color: #fff;
   padding-top: 6px;
 }
 
-/* line 325, ../sass/main.scss */
+/* line 358, ../sass/main.scss */
 button.blue {
   border: 0;
   color: #fff;
@@ -366,12 +407,12 @@ button.blue {
   background: linear-gradient(to bottom, #4aa1db 0%, #64b0e2 100%);
 }
 
-/* line 334, ../sass/main.scss */
+/* line 367, ../sass/main.scss */
 .panel-blue {
   background-color: #64b0e2;
 }
 
-/* line 338, ../sass/main.scss */
+/* line 371, ../sass/main.scss */
 input.blue {
   color: #888;
   padding: 5px 10px;
@@ -382,7 +423,7 @@ input.blue {
   font-family: "Source Sans Pro", Consolas, Monaco, "Andale Mono", monospace;
 }
 
-/* line 348, ../sass/main.scss */
+/* line 381, ../sass/main.scss */
 .blue.panel-body {
   border-top: 0;
   padding: 20px;
@@ -392,7 +433,7 @@ input.blue {
 }
 
 /* Colour Themes End */
-/* line 360, ../sass/main.scss */
+/* line 393, ../sass/main.scss */
 .header-left, .header-right {
   background: #eee;
   border-radius: 5px;
@@ -405,7 +446,7 @@ input.blue {
   overflow: hidden;
 }
 
-/* line 372, ../sass/main.scss */
+/* line 405, ../sass/main.scss */
 .header-left ul {
   display: inline-block;
   vertical-align: top;
@@ -413,7 +454,7 @@ input.blue {
   margin-left: -30px;
 }
 
-/* line 379, ../sass/main.scss */
+/* line 412, ../sass/main.scss */
 .header-right .info-container {
   width: 270px;
   float: right;
@@ -421,7 +462,7 @@ input.blue {
   padding-right: 10px;
 }
 
-/* line 386, ../sass/main.scss */
+/* line 419, ../sass/main.scss */
 .header-right ul {
   display: inline-block;
   vertical-align: top;
