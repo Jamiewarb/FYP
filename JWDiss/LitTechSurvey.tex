@@ -1,6 +1,7 @@
 \chapter{Literature \& Technology Survey}
 \section{Introduction}
-Throughout this chapter, we explore existing technologies, reviewing what areas of the problem they solve and which requirements they are lacking. We also seek to confirm the need for such a technology to fully solve the issues we have identified, through researching the problem domain via published literature.
+Throughout this chapter, we explore existing technologies, reviewing what areas of the problem they solve and which requirements they are lacking.
+We also seek to confirm the need for such a technology to fully solve the issues we have identified, through researching the problem domain via published literature.
 
 \section{Overview}
 One of the expected outcomes of this dissertation is an online, collaborative platform to facilitate cross and multi project code reuse, effective code searching, and code sharing and peer review.
@@ -21,11 +22,20 @@ The majority of this chapter will explore each of these points in detail, with a
 By the end of this chapter, we expect to have sufficiently explored this problem domain, including literature published on it and current technologies available for it, and ultimately conclude whether there are adequate tools to address the problem of small scale code reuse, and if not, why.
 
 \section{Has code reuse evolved over time, and how?}
-As previously established in Chapter 2, code reuse in some primitive form has existed since the advent of coding itself, with programmers simply sharing pieces of code between them. Also established is that the research into code reuse can be traced back to Douglas McIlroy in 1968, and his proposal for the software industry to be based on reusable components \cite{Naur1969,Jacobson1997}. Douglas saw the software industry in the same light as he saw a manufacturing industry - parts should be purchasable from suppliers to be used in building a more complex system, such as purchasing the individual parts required to build a car. He envisioned catalogues of interchangeable routines built to particular specifications that could be purchased and used, such as tyres for a vehicle, and their many technical specifications.
+As previously established in Chapter 2, code reuse in some primitive form has existed since the advent of coding itself, with programmers simply sharing pieces of code between them. 
+Also established is that the research into code reuse can be traced back to Douglas McIlroy in 1968, and his proposal for the software industry to be based on reusable components \cite{Naur1969,Jacobson1997}. 
 
-We can see, from modern day application, that these catalogues do not exist quite as Douglas' had initially described, though they do exist in some form or another. First, consider the modern day methodology of \textit{Component-Based Software Engineering}: the idea that software components can be made interchangeable and reliable, similar to hardware components \cite{Foukalas2005}. Then, this clearly flows from Douglas' idea of catalogues, but maintains a much more abstract view on how it should be implemented. This principle is what countless software companies utilise, enabling a product to be developed to perform a specific task, with exposed hooks or APIs, allowing it to be dropped in to a more complex system with relative ease.
+Douglas saw the software industry in the same light as he saw a manufacturing industry - parts should be purchasable from suppliers to be used in building a more complex system, such as purchasing the individual parts required to build a car. He envisioned catalogues of interchangeable routines built to particular specifications that could be purchased and used, such as tyres for a vehicle, and their many technical specifications.
 
-A practical example, to aid understanding, would be a software called Card.io. As shown in Figure \ref{cardioscan}. (www.card.io - Accessed 26th January 2016), the software itself enables the user to take a picture of their debit or credit card, and then reads the card number and expiry date from the picture, filling out card payment fields automatically with no typing. The software exposes a number of APIs to allow for embedding in applications, and as such is used in a plethora of applications that take payments from a customer, for example the PayPal payment library V.Zero (https://www.braintreepayments.com/v.zero), which itself is a modular component and can be embedded in further systems. Figure \ref{vzeroflow}. (PayPal Developer Website - Accessed 26th January 2016) shows how V.Zero itself slots into the middle of an application as a modular component.
+We can see, from modern day application, that these catalogues do not exist quite as Douglas' had initially described, though they do exist in some form or another. 
+First, consider the modern day methodology of \textit{Component-Based Software Engineering}: the idea that software components can be made interchangeable and reliable, similar to hardware components \cite{Foukalas2005}. 
+Then, this clearly flows from Douglas' idea of catalogues, but maintains a much more abstract view on how it should be implemented. 
+This principle is what countless software companies utilise, enabling a product to be developed to perform a specific task, with exposed hooks or APIs, allowing it to be dropped in to a more complex system with relative ease.
+
+A practical example, to aid understanding, would be a software called Card.io. 
+As shown in Figure \ref{cardioscan}. (www.card.io - Accessed 26th January 2016), the software itself enables the user to take a picture of their debit or credit card, and then reads the card number and expiry date from the picture, filling out card payment fields automatically with no typing. 
+The software exposes a number of APIs to allow for embedding in applications, and as such is used in a plethora of applications that take payments from a customer, for example the PayPal payment library V.Zero (https://www.braintreepayments.com/v.zero), which itself is a modular component and can be embedded in further systems. 
+Figure \ref{vzeroflow}. (PayPal Developer Website - Accessed 26th January 2016) shows how V.Zero itself slots into the middle of an application as a modular component.
 
 \begin{figure}[ht!]
 \centering
@@ -41,58 +51,132 @@ A practical example, to aid understanding, would be a software called Card.io. A
 \caption{PayPal's V.Zero Generic Application Flow \label{vzeroflow}}
 \end{figure}
 
-This demonstrates the commercialisation of Douglas' ideas, but this is not the only evolution of reuse, specifically for the personal code reuse of the small-scale developer demographic. However, comparatively less literature has been published and few research efforts made regarding such a demographic, as noted by \cite{Norton2003a} and \cite{Hsieh2006}. The majority of literature refers to large software organisations, but there is considerable need for personal code reuse as well. Norton notes that the majority of small-scale reuse is ad hoc and unstructured, whereas structuring such reuse would enable the developer to become much more efficient with their reuse, and so improve the benefits of engaging with it. The history of such personal reuse, therefore, is difficult to research, but Norton and Min-Sheng both note that there is no obvious practice or standard in place, unlike component-based software engineering.
+This demonstrates the commercialisation of Douglas' ideas, but this is not the only evolution of reuse, specifically for the personal code reuse of the small-scale developer demographic.
+However, comparatively less literature has been published and few research efforts made regarding such a demographic, as noted by \cite{Norton2003a} and \cite{Hsieh2006}. 
+The majority of literature refers to large software organisations, but there is considerable need for personal code reuse as well. 
+Norton notes that the majority of small-scale reuse is ad hoc and unstructured, whereas structuring such reuse would enable the developer to become much more efficient with their reuse, and so improve the benefits of engaging with it.
+The history of such personal reuse, therefore, is difficult to research, but Norton and Min-Sheng both note that there is no obvious practice or standard in place, unlike component-based software engineering.
 
 Therefore, it is clear that code reuse remains a popular concept, and one which can be, and is, employed in multiple ways, dependent on individual ideals; from Douglas' ideas on industrialisation of software development to the current day company repository and work methods, code reuse is ever popular. 
 
-However, small-scale code reuse has been given far less attention, despite it being applicable for individuals throughout their careers, and specifically those that work in relative isolation, such as students, hobbyists, consultants or freelancers \cite{Norton2003a}. Therefore, in the next section, we turn to industry, to seek and analyse potential tools these developers could use that have been built as products instead of research, as well as those available for larger organisations and the industry as a whole.
+However, small-scale code reuse has been given far less attention, despite it being applicable for individuals throughout their careers, and specifically those that work in relative isolation, such as students, hobbyists, consultants or freelancers \cite{Norton2003a}. 
+Therefore, in the next section, we turn to industry, to seek and analyse potential tools these developers could use that have been built as products instead of research, as well as those available for larger organisations and the industry as a whole.
 
 \section{What tools are there currently that attempt to partially or completely fulfil the goal of cross project, multi user code reuse?}
-In this section we will take a look at existing technologies related to the problem domain and analyse their functionality. At the end of the section, we list a set of features these tools may possess, related to fulfilling the original problem description set out in chapter 2, and examine how completely the tools fulfil these requirements.
+In this section we will take a look at existing technologies related to the problem domain and analyse their functionality. 
+At the end of the section, we list a set of features these tools may possess, related to fulfilling the original problem description set out in chapter 2, and examine how completely the tools fulfil these requirements.
 
-The technologies below were chosen for a number of reasons, including the author's knowledge of the industry and code reuse, google searches for code reuse tools and similar keywords, and popular technologies. For example, git and GitHub are industry-standard project repositories and implement sophisticated version control and project management tools, so git was chosen based on its widespread use and popularity.
+The technologies below were chosen for a number of reasons, including the author's knowledge of the industry and code reuse, google searches for code reuse tools and similar keywords, and popular technologies. 
+For example, git and GitHub are industry-standard project repositories and implement sophisticated version control and project management tools, so git was chosen based on its widespread use and popularity.
 
-In contrast, Snipplr was found from a search on google using key words “code snippet reuse tool”, and was selected on its immediate similarity to the author's suspected final solution, however, further analysis would reveal that several key features are missing. Finally, the author of this dissertation has experience with several of the tools listed, such as Stack Overflow, and so these tools were included as potential solutions in need of further analysis.
+In contrast, Snipplr was found from a search on google using key words “code snippet reuse tool”, and was selected on its immediate similarity to the author's suspected final solution, however, further analysis would reveal that several key features are missing. 
+Finally, the author of this dissertation has experience with several of the tools listed, such as Stack Overflow, and so these tools were included as potential solutions in need of further analysis.
 
-The technologies are presented in ascending order of the author's perceived 'fit for solution', beginning with those which least fit the author's imagined ideal solution. This ideal solution draws from a number of aspects, including the author's personal experience with code reuse, the literature discussed earlier within this chapter and in hindsight of the below complete analysis of the listed technologies. We begin with a minimalist code paste tool, Codepad.org.
+The technologies are presented in ascending order of the author's perceived 'fit for solution', beginning with those which least fit the author's imagined ideal solution. 
+This ideal solution draws from a number of aspects, including the author's personal experience with code reuse, the literature discussed earlier within this chapter and in hindsight of the below complete analysis of the listed technologies. 
+We begin with a minimalist code paste tool, Codepad.org.
 
-\textbf{A} - \textit{Codepad.org} is an online compiler/interpreter that has paste dump capabilities. It allows users to type or paste code from one of 12 languages in to a multiline text box, and then it runs that code and outputs a short URL containing both the source code and any runtime output, which can then be shared by the end user. It is a minimalist code share tool, where source can be saved as 'pastes', and shared via URL. There is little other functionality, other than the ability to make a paste private or save a paste to your account.
+\textbf{A} - \textit{Codepad.org} is an online compiler/interpreter that has paste dump capabilities. 
+It allows users to type or paste code from one of 12 languages in to a multiline text box, and then it runs that code and outputs a short URL containing both the source code and any runtime output, which can then be shared by the end user. 
+It is a minimalist code share tool, where source can be saved as 'pastes', and shared via URL. 
+There is little other functionality, other than the ability to make a paste private or save a paste to your account.
 
-\textbf{B} - \textit{Pastebin.com} is similar to Codepad, in that it facilitates 'copy paste' code sharing via a short URL, but does not run the code. It was created in 2002, but was not a popular platform until 2010, when it had achieved 1 million 'active' pastes \cite{Kumparak2011}. In June 2015 this number was more than 65 million active pastes. Pastebin contains more options than Codepad such as language specific syntax highlighting, paste expiration settings, public or private pastes as well as giving it a title, but again does not expand further than simply 'code paste' sharing. Pastebin also exposes an API to allow other tools to utilise its method of sharing, though most seem to be browser plugins. These can be seen on the pastebin website, under tools.
+\textbf{B} - \textit{Pastebin.com} is similar to Codepad, in that it facilitates 'copy paste' code sharing via a short URL, but does not run the code. 
+It was created in 2002, but was not a popular platform until 2010, when it had achieved 1 million 'active' pastes \cite{Kumparak2011}. 
+In June 2015 this number was more than 65 million active pastes. 
+Pastebin contains more options than Codepad such as language specific syntax highlighting, paste expiration settings, public or private pastes as well as giving it a title, but again does not expand further than simply 'code paste' sharing. 
+Pastebin also exposes an API to allow other tools to utilise its method of sharing, though most seem to be browser plugins. 
+These can be seen on the pastebin website, under tools.
 
-\textbf{C} - \textit{Google Docs} allows users to create and edit documents online, including text documents, spreadsheets, slideshows and forms. It originated when Google acquired Upstartle in 2006 and through 2007 merged their web-based word processor with Google Spreadsheets \cite{Mazzon2006}. While not specific to code, it boasts good online, collaborative features for editing documents, as well as cloud storage, and the ability to make documents private, public shareable or public editable. It also includes version history and roll backs for version control. Despite these features, it is not designed for code storage or retrieval. Retrieving code from the storage would quickly become cumbersome as no efficient categorisation or search tools are present, and performance is on par with NTFS. Therefore, Google Docs' main appeal is real time collaboration and version control of documents.
+\textbf{C} - \textit{Google Docs} allows users to create and edit documents online, including text documents, spreadsheets, slideshows and forms.
+It originated when Google acquired Upstartle in 2006 and through 2007 merged their web-based word processor with Google Spreadsheets \cite{Mazzon2006}.
+While not specific to code, it boasts good online, collaborative features for editing documents, as well as cloud storage, and the ability to make documents private, public shareable or public editable.
+It also includes version history and roll backs for version control.
+Despite these features, it is not designed for code storage or retrieval.
+Retrieving code from the storage would quickly become cumbersome as no efficient categorisation or search tools are present, and performance is on par with NTFS.
+Therefore, Google Docs' main appeal is real time collaboration and version control of documents.
 
-\textbf{D} - \textit{Stack Overflow} is a language-independent, collaboratively edited question and answer website, and contains a vast wealth of knowledge, and often examples too. It began in 2008 as a website dedicated to helping users seek assistance on programming related issues. Soon after in 2009, additional websites were created along the same premise, under the Stack Exchange umbrella. Within Stack Overflow, questions and answers are voted up and down, and edited in the same fashion as a wiki. Reputation is gained or lost from these votes, resulting in self-policing and consistent high quality content. These features relate to the problem domain as they help reduce stale code, and provide peer review for code snippets. They also allow editing of answers as programming languages evolve and standards change, which is something a static repository often fails to achieve. However, as it is a question and answer website, code sharing is reactive, and usually occurs as an example within an answer. It most certainly does not act as an adequate repository, despite its many usability and collaborative features. Despite this, it is worth noting for its usability features, as discussed.
+\textbf{D} - \textit{Stack Overflow} is a language-independent, collaboratively edited question and answer website, and contains a vast wealth of knowledge, and often examples too.
+It began in 2008 as a website dedicated to helping users seek assistance on programming related issues.
+Soon after in 2009, additional websites were created along the same premise, under the Stack Exchange umbrella.
 
-\textbf{E} - \textit{Integrated Development Environments} (IDE) may come with snippet tools. Sublime and Atom are both text editors for code and markup that include some form of snippet repository within them. These are offline, personal repositories, but the specific files can be zipped and sent to others, albeit with effort from both parties. The snippets are written and stored as files with some form of markup, for example XML. This then allows them to be named, and recalled simply by writing the name of the snippet. For code that is used often, this is a fast and efficient way to reuse code, but requires the developer remember both what snippets are available, and what name they all go by. Searching the repository is often cumbersome, and redundancy is quite possible, as snippets may go forgotten. As it is an offline, personal repository, the problems relating to stale code and lack of peer review remain.
+Within Stack Overflow, questions and answers are voted up and down, and edited in the same fashion as a wiki.
+Reputation is gained or lost from these votes, resulting in self-policing and consistent high quality content.
+These features relate to the problem domain as they help reduce stale code, and provide peer review for code snippets.
+They also allow editing of answers as programming languages evolve and standards change, which is something a static repository often fails to achieve.
+However, as it is a question and answer website, code sharing is reactive, and usually occurs as an example within an answer.
+It most certainly does not act as an adequate repository, despite its many usability and collaborative features.
+Despite this, it is worth noting for its usability features, as discussed.
 
-IDE Plugins are also an option, such as Resharper for Visual Studio. Its aim is to improve upon Visual Studio's snippets, though works in quite the same way as the IDE snippet tools mentioned above. Resharper however, can also predict which snippets you may want from the context of your code, among other things. Despite this functionality, it again is an offline, personal repository and maintains the same problems mentioned above that befall the IDE solutions.
+\textbf{E} - \textit{Integrated Development Environments} (IDE) may come with snippet tools.
+Sublime and Atom are both text editors for code and markup that include some form of snippet repository within them.
+These are offline, personal repositories, but the specific files can be zipped and sent to others, albeit with effort from both parties.
+The snippets are written and stored as files with some form of markup, for example XML.
+This then allows them to be named, and recalled simply by writing the name of the snippet.
+For code that is used often, this is a fast and efficient way to reuse code, but requires the developer remember both what snippets are available, and what name they all go by.
+Searching the repository is often cumbersome, and redundancy is quite possible, as snippets may go forgotten.
+As it is an offline, personal repository, the problems relating to stale code and lack of peer review remain.
 
-\textbf{F} - \textit{git} is a version control software, storing revisions of software in a distributed revision control system, and is widely used in the software development industry \cite{Skerrett2014}. Users can create a repository which maintains a complete history and full version-tracking of itself. This repository can then be cloned to another location to be worked on, and this second repository also maintains a complete history and full version-tracking. Commits can then be pushed between repositories, and changes are merged to allow for seamless collaboration even on the same files. However, git repositories mirror that of a file system, and as such have no real search or sort methods to allow for quick navigation through code snippets. Instead they are used to track source code for individual projects. This would make it cumbersome to use, and although it improves on Google Docs, as it is code oriented, it does not satisfy the ease of access nature that a code reuse repository would require.
+IDE Plugins are also an option, such as Resharper for Visual Studio.
+Its aim is to improve upon Visual Studio's snippets, though works in quite the same way as the IDE snippet tools mentioned above.
+Resharper however, can also predict which snippets you may want from the context of your code, among other things.
+Despite this functionality, it again is an offline, personal repository and maintains the same problems mentioned above that befall the IDE solutions.
 
-\textbf{G} - \textit{GitHub's Gists} initially look very similar to pastebin and codepad, in that the user may type or paste a snippet of code into a textarea, giving it a title, description and privacy options, and then share it via a URL with other users. However, once created, they are treated as a git repository, and can be cloned, revised and added to. This means they act as a combined pastebin and git, bringing with it the benefits of both, however this solution does not improve on the negative points mentioned above for either, and so again would not be suitable as a solution to the problem at hand.
+\textbf{F} - \textit{git} is a version control software, storing revisions of software in a distributed revision control system, and is widely used in the software development industry \cite{Skerrett2014}.
+Users can create a repository which maintains a complete history and full version-tracking of itself.
+This repository can then be cloned to another location to be worked on, and this second repository also maintains a complete history and full version-tracking.
+Commits can then be pushed between repositories, and changes are merged to allow for seamless collaboration even on the same files.
 
-\textbf{H} - \textit{Codebase} is an online repository hosting service that works with git and other similar repository services, but with project tracking features on top. Similarly, Codebase is used to track source code for individual projects, and also handles a number of other project management features, such as tickets, bug tracking, time tracking, customisable permissions, AGILE development and more. A number of these features would be useful in our ideal solution, however again Codebase falls short as it is cumbersome to extract snippets from a repository built in this manner. 
+However, git repositories mirror that of a file system, and as such have no real search or sort methods to allow for quick navigation through code snippets.
+Instead they are used to track source code for individual projects.
+This would make it cumbersome to use, and although it improves on Google Docs, as it is code oriented, it does not satisfy the ease of access nature that a code reuse repository would require.
 
-\textbf{I} - \textit{Snipplr} is an online snippet sharing website, and comes close to solving the problem. Users can create public or private (personal) snippets, containing a title, description, source code and other meta data, and save them to their own snippet library. If public, other users can comment on these snippets, favourite them or share them on social media. Snipplr has a number of search filters, including searching all snippets or just personal snippets, searching titles and descriptions, searching source or for specific tags. However, the search functionality is particularly verbose, and only allows for searching one of these filters at any time. Combination search is impossible, so complex filters cannot be created.
-Users have profiles, and can gain points and achievements for their snippets through community recognition, in a similar fashion to StackOverflow, and high scoring snippets are more visible to the community. Users also can edit their own profiles to provide personal information about themselves.
+\textbf{G} - \textit{GitHub's Gists} initially look very similar to pastebin and codepad, in that the user may type or paste a snippet of code into a textarea, giving it a title, description and privacy options, and then share it via a URL with other users.
+However, once created, they are treated as a git repository, and can be cloned, revised and added to.
+This means they act as a combined pastebin and git, bringing with it the benefits of both, however this solution does not improve on the negative points mentioned above for either, and so again would not be suitable as a solution to the problem at hand.
 
-At first look Snipplr seems to fit the bill for our problem domain, but a number of features are lacking. There is no version control or snapshot history for code snippets, and by extension there is no tracking information other than time and user of last edit. Additionally, Snipplr has no functionality geared towards sharing within a company or institution. If a company, such as a web development agency, wished to track reusable snippets and provide access to a list of employees, there is no process to do this with Snipplr. Similarly, if an educational institution wished to share code snippets with a specific subset of students, Snipplr would be unable to handle this request. Therefore, a comparison of these core features are necessary, to find which, if any, are most suited as our solution.
+\textbf{H} - \textit{Codebase} is an online repository hosting service that works with git and other similar repository services, but with project tracking features on top.
+Similarly, Codebase is used to track source code for individual projects, and also handles a number of other project management features, such as tickets, bug tracking, time tracking, customisable permissions, AGILE development and more.
+A number of these features would be useful in our ideal solution, however again Codebase falls short as it is cumbersome to extract snippets from a repository built in this manner.
+
+\textbf{I} - \textit{Snipplr} is an online snippet sharing website, and comes close to solving the problem.
+Users can create public or private (personal) snippets, containing a title, description, source code and other meta data, and save them to their own snippet library.
+If public, other users can comment on these snippets, favourite them or share them on social media.
+Snipplr has a number of search filters, including searching all snippets or just personal snippets, searching titles and descriptions, searching source or for specific tags.
+However, the search functionality is particularly verbose, and only allows for searching one of these filters at any time.
+Combination search is impossible, so complex filters cannot be created.
+Users have profiles, and can gain points and achievements for their snippets through community recognition, in a similar fashion to StackOverflow, and high scoring snippets are more visible to the community.
+Users also can edit their own profiles to provide personal information about themselves.
+
+At first look Snipplr seems to fit the bill for our problem domain, but a number of features are lacking.
+There is no version control or snapshot history for code snippets, and by extension there is no tracking information other than time and user of last edit.
+Additionally, Snipplr has no functionality geared towards sharing within a company or institution.
+If a company, such as a web development agency, wished to track reusable snippets and provide access to a list of employees, there is no process to do this with Snipplr.
+Similarly, if an educational institution wished to share code snippets with a specific subset of students, Snipplr would be unable to handle this request.
+Therefore, a comparison of these core features are necessary, to find which, if any, are most suited as our solution.
 
 \section{What core features can we draw from these tools for our ideal solution?}
-From the above break down of these technologies, we can establish preliminary criteria drawn from these tools that we believe would benefit the small scale code reusers. These criteria also allow us to both compare the tools with each other, and begin to conceptualise an ideal overall tool that consists of these criteria. Finally, it allows us to see if any one technology already fits in to this ideal overall tool, or how closely any one technology comes.
+From the above break down of these technologies, we can establish preliminary criteria drawn from these tools that we believe would benefit the small scale code reusers.
+These criteria also allow us to both compare the tools with each other, and begin to conceptualise an ideal overall tool that consists of these criteria.
+Finally, it allows us to see if any one technology already fits in to this ideal overall tool, or how closely any one technology comes.
 
-Table \ref{corefeatures}. culminates this information, with the individual technologies along the top and the criteria on the left. If the technology implements the criterion listed, a checkmark is placed in the corresponding box.
+Table \ref{corefeatures}.
+culminates this information, with the individual technologies along the top and the criteria on the left.
+If the technology implements the criterion listed, a checkmark is placed in the corresponding box.
 
-Before displaying the table, it is useful to explain the chosen criteria, to help give an understanding and greater depth to each criterion. The following bulleted list details this information:
+Before displaying the table, it is useful to explain the chosen criteria, to help give an understanding and greater depth to each criterion.
+The following bulleted list details this information:
 
 \begin{itemize}
-\item \textit{Paste Dump} - Some functionality specifically designed to allow writing or pasting code into a multiline text field, and the ability to find that code again via a URL. 
+\item \textit{Paste Dump} - Some functionality specifically designed to allow writing or pasting code into a multiline text field, and the ability to find that code again via a URL.
 \item \textit{Exposed API} - An API that enables some or all of the technology to function through third party code, such as calling savePaste(string) or getPaste(id) for a paste dump.
-\item \textit{Publicity Settings} - Some functionality that enables some or all of a user's input to be set to public or private. See Grouping Privacy criterion for explicit settings.
-\item \textit{Openly Collaborative} - The technology provides the ability for multiple users to collaborate on a single, shared input to the technology. 
-\item \textit{Online} - The tool can be accessed over the web, independent of device. Does not exclude the possibility of the tool also functioning offline.
-\item \textit{Peer Review} - The ability for other users to view and comment on a piece of code. Functionality could be extended to allow for change requests to be sent, or actual changes to be made by users.
+\item \textit{Publicity Settings} - Some functionality that enables some or all of a user's input to be set to public or private.
+See Grouping Privacy criterion for explicit settings.
+\item \textit{Openly Collaborative} - The technology provides the ability for multiple users to collaborate on a single, shared input to the technology.
+\item \textit{Online} - The tool can be accessed over the web, independent of device.
+Does not exclude the possibility of the tool also functioning offline.
+\item \textit{Peer Review} - The ability for other users to view and comment on a piece of code.
+Functionality could be extended to allow for change requests to be sent, or actual changes to be made by users.
 \item \textit{Advanced Search/Sort} - The technology provides advanced search and sort capabilities, including complex filters and search terms such as wildcards, to build a complete search term. 
 \item \textit{Version Control} - The technology has some form of version control, including a revision history, accountability tracking and the ability to access the previous versions of the code. 
 \item \textit{Grouping Privacy} - The technology provides features that allow groups of people to be defined, and for those groups to be given access to specific portions of the stored code, such as an institution giving private code to its members.
@@ -103,7 +187,9 @@ Before displaying the table, it is useful to explain the chosen criteria, to hel
 \item \textit{Accountability} - Any input, be it an addition, change or deletion, can be attributed to a user, and no such action can be performed anonymously.
 \end{itemize}
 
-These criteria were chosen from the set of core features implemented by the previously mentioned technologies, and were selected due to their likely utility within a final code reuse tool. The table below summarises these tools based on these criteria, and we shall use this as our main comparison between the tools. The letters and their corresponding technologies are repeated beneath the table for clarity.
+These criteria were chosen from the set of core features implemented by the previously mentioned technologies, and were selected due to their likely utility within a final code reuse tool.
+The table below summarises these tools based on these criteria, and we shall use this as our main comparison between the tools.
+The letters and their corresponding technologies are repeated beneath the table for clarity.
 
 
 \begin{table}[H]
@@ -144,26 +230,49 @@ Accountability              &    &    &    & \ding{51} &     & \ding{51}  &     
 \end{enumerate}
 
 
-These criteria are necessary in order to evaluate and compare the systems, but they will also provide a base from which to advance future research from, specifically in the next chapter when we question current industry experts for their habits and ideals behind code reuse at this scale. 
+These criteria are necessary in order to evaluate and compare the systems, but they will also provide a base from which to advance future research from, specifically in the next chapter when we question current industry experts for their habits and ideals behind code reuse at this scale.
 
-The criteria table shows us a number of important facts, as well as which technologies stand out as most matching our ideal set of criteria. We can see that codepad and pastebin are part of only three technologies that incorporate a paste dump, and that Gists is the only tool that acts further upon these paste dumps, turning them into repositories of their own to be worked on further. We also see that being \textit{Online} and having an \textit{Exposed API} are common attributes, appearing in all but one of the technologies. This would suggest that online tools are preferred, either by the developers to build or the users to utilise, though this may also be due in part to the research methods utilised and so needs further research to fully justify the reasoning.
+The criteria table shows us a number of important facts, as well as which technologies stand out as most matching our ideal set of criteria.
+We can see that codepad and pastebin are part of only three technologies that incorporate a paste dump, and that Gists is the only tool that acts further upon these paste dumps, turning them into repositories of their own to be worked on further.
+We also see that being \textit{Online} and having an \textit{Exposed API} are common attributes, appearing in all but one of the technologies.
+This would suggest that online tools are preferred, either by the developers to build or the users to utilise, though this may also be due in part to the research methods utilised and so needs further research to fully justify the reasoning.
 
-It is clear that the paste dump services and the IDE \& Plugins do not facilitate the role of a code reuse repository akin to the likes we are looking for. They each meet half or less of the criteria, and implement no advanced features (such as version control or advanced search/sort). However, their functionality is not implemented by the majority of the other technologies. This makes them worth reviewing as we will need to analyse whether that functionality is necessary in our final application, why other technologies haven't replicated the functionality, and whether their API is worth using instead if that functionality is required. We can see that GitHub's Gist ties in their paste dump service with the other features, and so this will be the system we analyse further when we look to develop or implement paste dump functionality.
+It is clear that the paste dump services and the IDE \& Plugins do not facilitate the role of a code reuse repository akin to the likes we are looking for.
+They each meet half or less of the criteria, and implement no advanced features (such as version control or advanced search/sort).
+However, their functionality is not implemented by the majority of the other technologies.
+This makes them worth reviewing as we will need to analyse whether that functionality is necessary in our final application, why other technologies haven't replicated the functionality, and whether their API is worth using instead if that functionality is required.
+We can see that GitHub's Gist ties in their paste dump service with the other features, and so this will be the system we analyse further when we look to develop or implement paste dump functionality.
 
-\textit{Publicity settings and Snippet Meta Data} are two more features commonly seen throughout our chosen technologies. Each were seen in seven of the nine technologies, suggesting they are also key features of the technology. Publicity settings did not appear in the IDE \& Plugins or on Stack Overflow, though this is likely due to the nature of the two technologies - the IDE \& Plugins were offline and specifically designed for one person, so would not need publicity settings, and Stack Overflow, being a collaborative Q\&A system, would not function with publicity settings. It would, however, be possible for Stack Overflow to implement a group privacy setting to restrict certain questions from only being answered by set groups, though this is not something I witnessed.
+\textit{Publicity settings and Snippet Meta Data} are two more features commonly seen throughout our chosen technologies.
+Each were seen in seven of the nine technologies, suggesting they are also key features of the technology.
+Publicity settings did not appear in the IDE \& Plugins or on Stack Overflow, though this is likely due to the nature of the two technologies - the IDE \& Plugins were offline and specifically designed for one person, so would not need publicity settings, and Stack Overflow, being a collaborative Q\&A system, would not function with publicity settings.
+It would, however, be possible for Stack Overflow to implement a group privacy setting to restrict certain questions from only being answered by set groups, though this is not something I witnessed.
 
-\textit{Group privacy}, instead, is implemented by a subset of the technologies which implemented publicity settings, by only Google Docs, git, Gists and Codebase. The author of this dissertation feels this feature is important when considering functionality of the envisioned system, as it would allow for groups or institutions to utilise the technology and restrict access to only its members. This feature is one of several which Snipplr do not implement, along with version control and advanced searching and sorting, which are key reasons why Snipplr does not fully encompass the expected outcome deliverable of this dissertation.
+\textit{Group privacy}, instead, is implemented by a subset of the technologies which implemented publicity settings, by only Google Docs, git, Gists and Codebase.
+The author of this dissertation feels this feature is important when considering functionality of the envisioned system, as it would allow for groups or institutions to utilise the technology and restrict access to only its members.
+This feature is one of several which Snipplr do not implement, along with version control and advanced searching and sorting, which are key reasons why Snipplr does not fully encompass the expected outcome deliverable of this dissertation.
 
-Of these final other features, \textit{Version Control} is the more common, being seen in 6 of the technologies, however, advanced searching and sorting can only be found in Stack Overflow. For a repository, being able to search for complex terms and filters efficiently is a key requirement to facilitate the reuse of deposited code, and aid the user in finding code they may not know exists within the repository. This is because users of the repository must be able to find and reuse components faster and easier than writing the code from scratch \cite{Krueger1992}. 
+Of these final other features, \textit{Version Control} is the more common, being seen in 6 of the technologies, however, advanced searching and sorting can only be found in Stack Overflow.
+For a repository, being able to search for complex terms and filters efficiently is a key requirement to facilitate the reuse of deposited code, and aid the user in finding code they may not know exists within the repository.
+This is because users of the repository must be able to find and reuse components faster and easier than writing the code from scratch \cite{Krueger1992}.
 
-Human beings are utility-maximizers \cite{Cognition1997} - that is to say, they seek the approach that yields more value than its cost, meaning code reuse will only be embraced when it is believed that reusing the code is easier than writing it themselves. Users may remember a piece of code, but not when or for what they developed it, which makes finding and reusing the code difficult or more cumbersome. A reuse repository requires that finding and reusing the code be more efficient than simply rewriting it, which in turn requires that searching the repository be fast and efficient. If one must spend 10 minutes recalling the code, and another 10 searching for it, when it could have been written in 15 minutes, the repository is not fit for purpose and instead negatively impacts the developer. To this end, advanced searching and sorting is a key component of the ideal solution, and therefore, the technologies that do not implement this feature are far less likely to fully encompass the requirements of our expected deliverable. Consequently, we shall focus on Stack Overflow when we research further into advanced search and sorting, to identify how it should be implemented in the final deliverable.
+Human beings are utility-maximizers \cite{Cognition1997} - that is to say, they seek the approach that yields more value than its cost, meaning code reuse will only be embraced when it is believed that reusing the code is easier than writing it themselves.
+Users may remember a piece of code, but not when or for what they developed it, which makes finding and reusing the code difficult or more cumbersome.
+A reuse repository requires that finding and reusing the code be more efficient than simply rewriting it, which in turn requires that searching the repository be fast and efficient.
+If one must spend 10 minutes recalling the code, and another 10 searching for it, when it could have been written in 15 minutes, the repository is not fit for purpose and instead negatively impacts the developer.
+To this end, advanced searching and sorting is a key component of the ideal solution, and therefore, the technologies that do not implement this feature are far less likely to fully encompass the requirements of our expected deliverable.
+Consequently, we shall focus on Stack Overflow when we research further into advanced search and sorting, to identify how it should be implemented in the final deliverable.
 
-We have discussed the core features of these technologies and explained the reasons behind why they are important. This has shown that no single technology fully encompasses these requirements despite their relevancy in the final deliverable, and would suggest that the final deliverable itself will be a new technology, built from the core criteria researched above.
+We have discussed the core features of these technologies and explained the reasons behind why they are important.
+This has shown that no single technology fully encompasses these requirements despite their relevancy in the final deliverable, and would suggest that the final deliverable itself will be a new technology, built from the core criteria researched above.
 
-Having established these core criteria for our system, we can now begin to look at optional features that the existing technologies implement - usability features that aren't necessary for full functionality, but that improve the day to day usage of these specific tools. In the next section, we discuss the most prominent usability features pulled from our set of technologies, and evaluate how each tool improves the quality of the software and its use.
+Having established these core criteria for our system, we can now begin to look at optional features that the existing technologies implement - usability features that aren't necessary for full functionality, but that improve the day to day usage of these specific tools.
+In the next section, we discuss the most prominent usability features pulled from our set of technologies, and evaluate how each tool improves the quality of the software and its use.
 
 \section{What usability features do these tools implement and utilise?}
-The discussed technologies implement a large array of usability features, ranging from user interface additions or backend functionality, to user-to-user interaction or organisation tools. For this reason, noteworthy features have been extracted from the technologies and grouped in to categories, then given a brief description to aid understanding. The categories were chosen by the author in an attempt to encompass fully the selected optional features, and provide a logical categorising for analysis.
+The discussed technologies implement a large array of usability features, ranging from user interface additions or backend functionality, to user-to-user interaction or organisation tools.
+For this reason, noteworthy features have been extracted from the technologies and grouped in to categories, then given a brief description to aid understanding.
+The categories were chosen by the author in an attempt to encompass fully the selected optional features, and provide a logical categorising for analysis.
 
 \begin{itemize} 
 	\item User Interface
@@ -210,11 +319,13 @@ The discussed technologies implement a large array of usability features, rangin
 	\begin{itemize}
 		\item Tagging, Indexing, Searching/Sorting
 		\begin{itemize}
-			\item Tagging allows users to add specific meta data to submissions to aid future search and sorting. This could involve describing the type of submission, where or when it was written, or what language it's in, and is commonly seen as a list of key words. 
+			\item Tagging allows users to add specific meta data to submissions to aid future search and sorting.
+This could involve describing the type of submission, where or when it was written, or what language it's in, and is commonly seen as a list of key words. 
 		\end{itemize}
 		\item User groups/companies/institutions
 		\begin{itemize}
-			\item The technology enables users to create groups and invite other users in to them. They may have a hierarchy of admins and members, or have all users be equivalent, and can be used by companies or institutions to distribute submissions to all of its members.
+			\item The technology enables users to create groups and invite other users in to them.
+They may have a hierarchy of admins and members, or have all users be equivalent, and can be used by companies or institutions to distribute submissions to all of its members.
 		\end{itemize}
 		\item Public/Private snippets/groups
 		\begin{itemize}
@@ -231,7 +342,8 @@ The discussed technologies implement a large array of usability features, rangin
 		\item Submission Grouping/Multi-part Submission
 		\begin{itemize}
 			\item The ability to create submissions that are part of a small collective of submissions, and as such are linked together by some method.
-			\item For example, a submission may be for template code for a dynamic button on a website. One part utilises HTML for markup, another uses CSS for styling and a third part incorporates JavaScript for animation.
+			\item For example, a submission may be for template code for a dynamic button on a website.
+One part utilises HTML for markup, another uses CSS for styling and a third part incorporates JavaScript for animation.
 		\end{itemize}
 		\item Custom groups for submissions
 		\begin{itemize}
@@ -250,7 +362,8 @@ The discussed technologies implement a large array of usability features, rangin
 	\begin{itemize} 
 		\item Integrated Development Environment (IDE) Integration via API
 		\begin{itemize}
-			\item Snippets saved to the technology can be accessed from within the IDE via exposed hooks to the technology. Might include user authentication.
+			\item Snippets saved to the technology can be accessed from within the IDE via exposed hooks to the technology.
+Might include user authentication.
 		\end{itemize}
 		\item Facebook Login for easy account creation/future login
 		\begin{itemize}
@@ -267,18 +380,32 @@ The discussed technologies implement a large array of usability features, rangin
 	\end{itemize}
 \end{itemize}
 
-These usability features are all optional for a final system, but each one can be useful for specific use cases or certain user bases. For example, \textit{Third Party Tools} enable the technology to fit more easily in to a user's workflow, or create a more seamless integration for utilising the tool, including before, during and after development, such as planning, developing and sharing. \textit{User Interface} additions help make the technology more accessible, efficient or easier to use, and can help users quickly understand how to use the technology, or make sense of a submission, such as with Syntax Highlighting.
+These usability features are all optional for a final system, but each one can be useful for specific use cases or certain user bases.
+For example, \textit{Third Party Tools} enable the technology to fit more easily in to a user's workflow, or create a more seamless integration for utilising the tool, including before, during and after development, such as planning, developing and sharing.
+\textit{User Interface} additions help make the technology more accessible, efficient or easier to use, and can help users quickly understand how to use the technology, or make sense of a submission, such as with Syntax Highlighting.
 
-\textit{User-to-user interaction} is important to promote a social environment within the technology, while also enabling users to more easily engage in cross-user interaction. User interaction facilitates two of the core features, collaboration and peer review, and as such, these optional features play an important role in the final system. Finally, \textit{Content Navigation} makes up a large bulk of the optional features, which is to be expected, as the technology will be responsible for storing, categorising and retrieving content in the form of submissions and as such, these features will focus heavily throughout the technology.
+\textit{User-to-user interaction} is important to promote a social environment within the technology, while also enabling users to more easily engage in cross-user interaction.
+User interaction facilitates two of the core features, collaboration and peer review, and as such, these optional features play an important role in the final system.
+Finally, \textit{Content Navigation} makes up a large bulk of the optional features, which is to be expected, as the technology will be responsible for storing, categorising and retrieving content in the form of submissions and as such, these features will focus heavily throughout the technology.
 
-The next step for the optional features is to describe their priority relative to each other. In the next chapter, we delve into this task, and present opinions collected from an array of end users, including industry professionals from a range of companies, and undergraduate students studying Computer Science. Ultimately, we intend to finalise the requirements for the deliverable.
+The next step for the optional features is to describe their priority relative to each other.
+In the next chapter, we delve into this task, and present opinions collected from an array of end users, including industry professionals from a range of companies, and undergraduate students studying Computer Science.
+Ultimately, we intend to finalise the requirements for the deliverable.
 
 \section{Conclusions}
-As stated at the start of this chapter, our goal throughout this section was to determine whether the problem domain of small scale code reuse has been sufficiently explored, and whether there are adequate technologies currently that address the domain. We explored the history of code reuse, from its roots up to its modern day evolution, and discovered that, although papers on reuse are not uncommon, those focused on individual or small scale reuse are sparse, and this has been noted in several published works.
+As stated at the start of this chapter, our goal throughout this section was to determine whether the problem domain of small scale code reuse has been sufficiently explored, and whether there are adequate technologies currently that address the domain.
+We explored the history of code reuse, from its roots up to its modern day evolution, and discovered that, although papers on reuse are not uncommon, those focused on individual or small scale reuse are sparse, and this has been noted in several published works.
 
-We also described nine potential technologies, and investigated how they work and what they accomplish. From this we identified fourteen core criteria that our desired system should facilitate. Unfortunately, none of the technologies managed to fully encompass all these requirements, which suggested that technology, like the literature, does not provide adequate coverage for users of small scale code reuse. 
+We also described nine potential technologies, and investigated how they work and what they accomplish.
+From this we identified fourteen core criteria that our desired system should facilitate.
+Unfortunately, none of the technologies managed to fully encompass all these requirements, which suggested that technology, like the literature, does not provide adequate coverage for users of small scale code reuse. 
 
-Further to the core features, we identified many optional features that promote user experience. These were aggregated from the technologies we described, and will be used in practical research to help mould the deliverable we intend to create. This practical research will be conducted with the help of professionals from multiple industries, and students in educational institutions. We will utilise their input and knowledge from their own code reuse experiences, and collaborate their feedback and opinions into the requirements and design phase throughout the next chapter.
+Further to the core features, we identified many optional features that promote user experience.
+These were aggregated from the technologies we described, and will be used in practical research to help mould the deliverable we intend to create.
+This practical research will be conducted with the help of professionals from multiple industries, and students in educational institutions.
+We will utilise their input and knowledge from their own code reuse experiences, and collaborate their feedback and opinions into the requirements and design phase throughout the next chapter.
 
-To conclude, we feel there has not been adequate research in to small scale code reuse, nor is there a sufficient technology able to fully address the needs of the code reuser. We intend to design, construct and evaluate such a technology in an open source environment, with the desire of improving small scale, cross project code reuse. The first step for this begins in our next chapter: the requirements and design for such a system.
+To conclude, we feel there has not been adequate research in to small scale code reuse, nor is there a sufficient technology able to fully address the needs of the code reuser.
+We intend to design, construct and evaluate such a technology in an open source environment, with the desire of improving small scale, cross project code reuse.
+The first step for this begins in our next chapter: the requirements and design for such a system.
 

@@ -8,6 +8,7 @@
 \usepackage{pifont}
 \usepackage{float}
 \usepackage{enumitem}
+\usepackage{cleveref}
 \restylefloat{table}
 
 \include{DissertationDefs}    %% These are the includes required for the doc 
@@ -71,34 +72,60 @@ Add any acknowledgements here.
 
 \chapter{Detailed Problem Overview}
 \section{Problem Knowledge}
-Within this section, context is given to the problem by means of providing domain knowledge, which is necessary before describing the problem itself. Reusable code is discussed, as well as the use of repositories to store such code. 
+Within this section, context is given to the problem by means of providing domain knowledge, which is necessary before describing the problem itself. 
+Reusable code is discussed, as well as the use of repositories to store such code. 
 
 \subsection{Code Reuse}
 Writing reusable code is the act of developing (usually) modular code with two goals in mind: how it fits in to the current project, and how it can be used in future projects.
-Therefore, code reuse is specifically using existing code to produce new software, and reusability is the indicator of how likely it is that a section of code can be reused \cite{Frakes2005}. 
+
+Therefore, code reuse is specifically using existing code to produce new software, and reusability is the indicator of how likely it is that a section of code can be reused \cite{Frakes2005}.
+ 
 Following the mind-set of reusable code allows for stable subsystems to be used as the foundations on which more complex systems can be built on top, allowing them to develop faster \cite{Yunwen2000}.
-Ideal reusable code would have already been developed and tested for accuracy and completeness, allowing the developer to trust in the code and not need to re-develop or test their own version of this code \cite{Grinter2001}. Therefore, software reuse can improve on the final quality of the software, as well as the developer’s productivity.
+
+Ideal reusable code would have already been developed and tested for accuracy and completeness, allowing the developer to trust in the code and not need to re-develop or test their own version of this code \cite{Grinter2001}.
+
+Therefore, software reuse can improve on the final quality of the software, as well as the developer’s productivity.
 
 \subsection{A Brief History of Code Reuse}
-It is generally understood that code reuse has been around since programming began: Programmers have been swapping code for as long as there was code to swap; but research into the field can be mostly traced to Douglas McIlroy in 1968, and his proposal for the software industry to be based on reusable components \cite{Naur1969,Jacobson1997}. 
-Modern day reuse environments have a focus on repurposing existing software assets, and writing or creating those assets to be as reusable as possible. These assets extend further than just code, and include models, requirements, designs and tests \cite{Grinter2001}, or they can be as simple as README files.
+It is generally understood that code reuse has been around since programming began: Programmers have been swapping code for as long as there was code to swap; but research into the field can be mostly traced to Douglas McIlroy in 1968, and his proposal for the software industry to be based on reusable components \cite{Naur1969,Jacobson1997}.
+
+Modern day reuse environments have a focus on repurposing existing software assets, and writing or creating those assets to be as reusable as possible. 
+These assets extend further than just code, and include models, requirements, designs and tests \cite{Grinter2001}, or they can be as simple as README files.
 
 \subsection{Cross Project Code Reuse}
-Software developers, notably those that work on smaller day-to-day projects such as web development, are often faced with repeatedly writing similar or identical code when beginning new projects, or creating congruent modules. Furthermore, developers often have resources they wish to access and use regularly, such as normalise.css in web development (for forcing the same default behaviour between all modern browsers).
+Software developers, notably those that work on smaller day-to-day projects such as web development, are often faced with repeatedly writing similar or identical code when beginning new projects, or creating congruent modules. 
+Furthermore, developers often have resources they wish to access and use regularly, such as normalise.css in web development (for forcing the same default behaviour between all modern browsers).
+
 Despite this commonality, some developers continue to write the same code, wasting development time and effort on each occasion they reproduce this code. 
-Others store this code in files on their local machine or in a cloud service, often categorising snippets by use of named folders. This code then remains static, un-shareable and not available for peer review. 
-With the ever rapid advancements in software development and individual language evolutions, code stored in this way is prone to going stale and obsolete. This leads us on to talk about code repositories.
+
+Others store this code in files on their local machine or in a cloud service, often categorising snippets by use of named folders. 
+This code then remains static, un-shareable and not available for peer review. 
+
+With the ever rapid advancements in software development and individual language evolutions, code stored in this way is prone to going stale and obsolete. 
+This leads us on to talk about code repositories.
 
 \subsection{Code Repositories}
 Code repositories are databases tasked with the management of source code, and can be modelled in a variety of ways, such as relational or object-oriented \cite{Cox1999}.
+
 These repositories are often project orientated, such as with an SVN or Git, where source code is uploaded in entirety and act as a version control for, or snapshots of, a project.
-Other repositories are used to store modularised code for reusing in later projects. This paper focuses more on these types of repositories, specifically when using them for short, cross-project, recurrent snippets.
+
+Other repositories are used to store modularised code for reusing in later projects. 
+This paper focuses more on these types of repositories, specifically when using them for short, cross-project, recurrent snippets.
 
 \section{Problem Description}
-When looking at these cross-project repositories, a number of issues stand out in relation to how the developers use and interact with the repositories and the reusable code itself. The first and foremost is when developers don’t reuse code at all, and instead opt to continually rewrite it each time.
-Next, then, are personal repositories: A user may write a piece of code and store it for reuse, but this code may not be reviewed in the future, leading to stale code. Furthermore, there is no visibility of the code to peers, removing the possibility of peer review or improvement.
-The ability to effectively search and sort within the repository is key to its effectiveness, and often personal repositories don’t have adequate features for this. This dampens the possibility of finding code even without knowing it exists in the repository.
-Finally, the issue of the repository evolving needs to be addressed. As languages evolve, so too must the repository to adapt to the needs of the developer. Often this priority takes a backseat and the repository itself may become inefficient. Therefore, we have identified five problems with developers, code reuse and the repositories itself.
+When looking at these cross-project repositories, a number of issues stand out in relation to how the developers use and interact with the repositories and the reusable code itself. 
+The first and foremost is when developers don’t reuse code at all, and instead opt to continually rewrite it each time.
+
+Next, then, are personal repositories: A user may write a piece of code and store it for reuse, but this code may not be reviewed in the future, leading to stale code. 
+Furthermore, there is no visibility of the code to peers, removing the possibility of peer review or improvement.
+
+The ability to effectively search and sort within the repository is key to its effectiveness, and often personal repositories don’t have adequate features for this.
+This dampens the possibility of finding code even without knowing it exists in the repository.
+
+Finally, the issue of the repository evolving needs to be addressed. 
+As languages evolve, so too must the repository to adapt to the needs of the developer. 
+Often this priority takes a backseat and the repository itself may become inefficient. 
+Therefore, we have identified five problems with developers, code reuse and the repositories itself.
 
 \begin{itemize}
 \item The developer may not reuse at all, and so waste time rewriting code.
