@@ -106,17 +106,18 @@ a.user-link:hover > .header-right .info-container h4 small {
   font-family: 'Source Code Pro', Consolas, Monaco, "Andale Mono", monospace;
   height: auto;
   float: left;
+  padding-left: 50px;
 }
-/* line 81, ../sass/snippet.scss */
+/* line 82, ../sass/snippet.scss */
 .edit-snippet-body .textarea-body {
-  font-size: 15px !important;
+  font-size: 13px !important;
   min-height: 350px;
   overflow: scroll;
   color: #111;
   font-family: 'Source Code Pro', Consolas, Monaco, "Andale Mono", monospace;
 }
 
-/* line 90, ../sass/snippet.scss */
+/* line 91, ../sass/snippet.scss */
 #func-headbar {
   background-color: #64b0e2;
   float: right;
@@ -124,7 +125,7 @@ a.user-link:hover > .header-right .info-container h4 small {
   border-bottom-left-radius: 5px;
 }
 
-/* line 97, ../sass/snippet.scss */
+/* line 98, ../sass/snippet.scss */
 .functions-right {
   position: absolute;
   top: 0;
@@ -132,7 +133,7 @@ a.user-link:hover > .header-right .info-container h4 small {
   border-bottom-left-radius: 5px;
 }
 
-/* line 104, ../sass/snippet.scss */
+/* line 105, ../sass/snippet.scss */
 .functions-square {
   text-align: center;
   font-size: 30px;
@@ -142,34 +143,34 @@ a.user-link:hover > .header-right .info-container h4 small {
   margin: 0;
   padding-top: 8px;
 }
-/* line 112, ../sass/snippet.scss */
+/* line 113, ../sass/snippet.scss */
 .functions-square a {
   color: #fff;
   text-decoration: none;
 }
-/* line 116, ../sass/snippet.scss */
+/* line 117, ../sass/snippet.scss */
 .functions-square a:hover {
   color: #333;
 }
 
-/* line 121, ../sass/snippet.scss */
+/* line 122, ../sass/snippet.scss */
 .function-star.fav-on {
   color: #fff700;
 }
 
 @media (min-width: 768px) {
-  /* line 126, ../sass/snippet.scss */
+  /* line 127, ../sass/snippet.scss */
   .textarea-comment {
     padding-right: 108px !important;
   }
 
-  /* line 129, ../sass/snippet.scss */
+  /* line 130, ../sass/snippet.scss */
   #func-headbar {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 135, ../sass/snippet.scss */
+  /* line 136, ../sass/snippet.scss */
   .functions-right#func-corner {
     display: none;
   }

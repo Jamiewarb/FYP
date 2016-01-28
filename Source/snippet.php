@@ -152,6 +152,7 @@ if (isset($snippet_id)) {
 		<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="resources/css/main.css" media="screen, projection" type="text/css">
 		<link rel="stylesheet" href="resources/css/snippet.css" type="text/css">
+		<link rel="stylesheet" href="resources/css/prism.css" type="text/css">
 		<!--[if IE]>
 		<link href="resources/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
 		<![endif]--> 
@@ -241,7 +242,7 @@ if (isset($snippet_id)) {
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<pre class="textarea-body"><?php echo htmlspecialchars($snippet_data); ?></pre>
+									<pre class="textarea-body line-numbers"><code class="language-<?php echo $language; ?>"><?php echo htmlspecialchars($snippet_data); ?></code></pre>
 								</div>
 							</div>
 
@@ -279,6 +280,7 @@ if (isset($snippet_id)) {
 		<script src="resources/js/pnglib.js"></script>
 		<script src="resources/js/identicon.js"></script>
 		<script src="resources/js/moment-maker.js"></script>
+		<script src="resources/js/prism.js"></script>
 		<script>
 		$(document).ready(function() {
 
