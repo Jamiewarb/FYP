@@ -4,8 +4,105 @@
 %% critique the requirements process. Then, you review your design decisions at various
 %% levels and critique the design process.
 
+\newlist{requirements}{enumerate}{1}
+\setlist[requirements]{label=\textbf{R\arabic{subsection}.\arabic*}}
+
 \section{Introduction}
-Throughout this chapter, we detail the requirements for our system, both functional and non-functional, by drawing on the core and optional features described in the previous chapter. With these in mind, we then move on to consider the design of our proposed deliverable, and set specific goals for it, which will later be used as measurements of evaluation for the system.
+Throughout this chapter, we detail the requirements for our system, both functional and non-functional, by drawing on the core and optional features described in the previous chapter. 
+With these in mind, we then move on to consider the design of our proposed deliverable, and set specific goals for it. 
+All of this will be reflected upon later, and used as measurements of evaluation for the system.
 
 \section{Requirements}
-We begin by translating the previous core features in to functional and non-functional requirements, 
+We begin by translating the previous core features in to functional and non-functional requirements, with which we can start to build an idea of the expected functionality of our system. 
+These requirements are somewhat flexible in that they don't fully describe the intended system, but are instead guides built from the identified features to provide us with direction for design and a means of ensuring the system meets its intended purposes.
+
+
+\subsection{Non-functional Requirements}
+\textbf{These Requirements have a high priority}
+
+\begin{requirements}
+
+    \item Security \label{security} \\
+	\textit{The system shall be secure, so that passwords and private information are protected from unauthorised access.}
+
+    \item Ease of Use \label{easeofuse} \\
+	\textit{The system shall be easy to use, such that one could learn to use it via observation.}
+
+    \item Simple and Clear \label{simpleandclear} \\
+	\textit{The system shall be simple and clear, such that users make minimal mistakes when using the system.}
+
+    \item Memorability \label{memorability} \\
+	\textit{The system shall be memorable, such that users can return after a period of not using it and re-establish proficiency with minimal mistakes.}
+
+    \item Familiarity \label{familiarity} \\
+	\textit{The system shall be familiar to the user, allowing them to intuit the workings of the elements of the system by seeing them.}
+
+    \item Self Policing \label{selfpolicing} \\
+	\textit{The system should be self-policing to help lower the amount of administrative input required to prevent spam and poor quality submissions entering the public domain.}
+
+\end{requirements}
+
+\textbf{These Requirements have a low priority}
+
+\begin{requirements}[resume]
+
+    \item Open Source \label{opensource} \\
+	\textit{The system shall be Open Source, allowing others to view all code, except where that code would jeopardise requirement \ref{security} Security.}
+
+\end{requirements}
+
+
+\subsection{Functional Requirements}
+\textbf{These Requirements have a high priority}
+
+\begin{requirements}
+
+    \item History \label{history} \\
+	\textit{The system should keep track of all additions/changes/deletions made, in completion.}
+
+    \item Accountability \label{accountability} \\
+	\textit{The system should relate all additions/changes/deletions to the specific user making them.}
+
+    \item Social Activity \label{socialactivity} \\
+	\textit{The system should provide some method of social activity to allow user-to-user and user-to-snippet interaction. This activity should demonstrate the views and opinions of the user performing the activity.}
+
+    \item Content Navigation/Discovery \label{content} \\
+	\textit{The system should provide users with methods for finding the content they need or desire, without knowing where it is or that it even exists. Such methods should allow for complex search queries of multiple parts.}
+
+    \item Privacy \label{privacy} \\
+	\textit{The system should allow users to control access to their submissions.}
+
+    \item Password Security \label{passwordsecurity} \\
+	\textit{The system should encrypt passwords with up-to-date and appropriate encryption methods.}
+
+    \item Data Security \label{datasecurity} \\
+	\textit{The system should employ user login authentication to prevent access to unauthorised material.}
+
+    \item Platform Compatible \label{platformcompatible} \\
+	\textit{The system should work as intended on all modern browsers and devices.}
+
+   \end{requirements}
+
+\textbf{These Requirements have a low priority}
+
+\begin{requirements}[resume]
+
+    \item Gamification \label{gamification} \\
+	\textit{The system should provide an element of gamification aimed at increasing user interaction.}
+
+    \item Submission Groups \label{submissiongroups} \\
+	\textit{The system should allow multiple submissions to be grouped into an overall submission for multi-part related snippets.}
+
+\end{requirements}
+
+
+\section{Design}
+
+\subsection{Problem Domain}
+
+There are many hundreds of programming languages, each unique from each other and often with wildly varying syntaxes.  
+The system will need to cope with these in some manner, whether it be to maintain a generic flow to encorporate all languages while sacrificing some features or functionality, or to choose a subset of the most notable languages and only allow these to be used.
+
+
+
+

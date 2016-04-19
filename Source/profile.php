@@ -2,6 +2,92 @@
 // Load global functions and open session
 session_start();
 include_once('resources/functions/functions.php');
+
+if (isset($_GET['u'])) {
+	$profile_user = $_GET['u'];
+
+	$datas = $database->select("users", [ 
+		"id",
+		"username",
+		"email",
+		"bio",
+		"firstname",
+		"lastname",
+		"infoline1",
+		"infoline2",
+		"joindate",
+		"profile_publicity"
+	], [
+		"username" => $profile_user,
+		"LIMIT" => 1
+	]);
+
+	if ($datas) {
+		foreach($datas as $data) {
+			$profile_publicity = $data['profile_publicity'];
+			if ($profile_publicity == 1) {
+				// This profile is private, so display a message saying so
+			} else {
+				$id = $data['id'];
+				$username = $data['username'];
+				$email = $data['email'];
+				$bio = $data['bio'];
+				$firstname = $data['firstname'];
+				$lastname = $data['lastname'];
+				$infoline1 = $data['infoline1'];
+				$infoline2 = $data['infoline2'];
+				$joindate = $data['joindate'];
+				$total_snippets = 2;
+
+				if (strlen($bio) <= 0) {
+					$bio = "(Your bio section is currently blank)";
+				}
+
+				// We need to get snippet and board information too
+				$datas = $database->select("snippets", [ 
+					"id",
+					"title",
+					"language",
+					"total_rating",
+					"total_favs"
+				], [
+					"OR" => [
+						"creator_id" => $id,
+						"updated_by_id" => $id
+					],
+					"ORDER" => "updated_date DESC",
+					"LIMIT" => 3
+				]);
+
+				if ($datas) {
+					foreach($datas as $data) {
+						$snippets[] = [
+							"id" => $data['id'], 
+							"title" => $data['title'],
+							"language" => $data['language'],
+							"total_rating" => $data['total_rating'],
+							"total_favs" => $data['total_favs']
+						];
+					}
+				}
+
+				// We need to get updated snippets too and display those
+			}
+		}
+	} else {
+		// Show non-existant user page
+	}
+
+} else {
+	// They didn't specify which profile to view
+	if (isset($_SESSION['login_user'])) {
+		header("Location: profile?u=" . $_SESSION['login_user']['username']);
+		exit();
+	} else {
+		header("Location: index");
+		exit();
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,20 +122,20 @@ include_once('resources/functions/functions.php');
 					<img class="profile-image" id="profile-image-id" src="" width="130" height="130">
 					<ul class="profile-main-info">
 						<li>
-							<h3>Jamie Warburton</h3>
+							<h3><?php echo $firstname . " " . $lastname; ?></h3>
 						</li>
 						<li>
-							<h5>CS Student</h5>
+							<h5><?php echo $infoline1; ?></h5>
 						</li>
 						<li>
-							<h5>University of Bath</h5>
+							<h5><?php echo $infoline2; ?></h5>
 						</li>
 						<li>
 							<a href="#"><h5 class="snip-count"><i class="fa fa-thumb-tack"></i> 4</h5></a>
 							<a href="#"><h5 class="snip-count"><i class="fa fa-star"></i> 2</h5></a>
 						</li>
 						<li>
-							<h5><small>Member since 29/12/15</small></h5>
+							<h5><small>Member since <?php echo date('d/m/y', strtotime($joindate)); ?></small></h5>
 						</li>
 					</ul>
 					<div class="clear"></div>
@@ -60,7 +146,7 @@ include_once('resources/functions/functions.php');
 						<h5>Bio:</h5>
 						<div class="profile-bio">
 							<a href="#" class="a-blk">Click here to edit</a>
-							<p>(Your bio section is currently blank)</p>
+							<p><?php echo $bio; ?></p>
 						</div>
 					</div>
 
@@ -71,33 +157,27 @@ include_once('resources/functions/functions.php');
 					<div class="profile-latest-snippets">
 						<h4><i class="fa fa-thumb-tack"></i> My latest Snippets <a href="#" class="profile-latest-view-all">View all</a></h4>
 						<ul class="snippet-list">
+
+							<?php if (count($snippets) > 0) { 
+								foreach ($snippets as $snippet) {
+							?>
 							<li>
-								<i class="fa fa-star fav-snippet"></i> <span class="snippet-titleline"><a href="snippet"><strong>Cheeky HTML 5 boilerplate</strong></a></span><br>
+								<i class="fa fa-star fav-snippet"></i> <span class="snippet-titleline"><a href="snippet"><strong><?php echo $snippet["title"]; ?></strong></a></span><br>
 								<span class="snippet-subline">
-									<a href="#"><span class="lang html">html</span></a>
+									<a href="#"><span class="lang <?php echo $snippet["language"]; ?>"><?php echo $snippet["language"]; ?></span></a>
 									<span class="saved-by">
-										Faved by 37 people
+										Faved by <?php echo $snippet["total_favs"]; ?> people
 									</span>
 								</span>
 							</li>
-							<li>
-								<i class="fa fa-star fav-snippet inactive"></i> <span class="snippet-titleline"><a href="snippet"><strong>Example PHP Code</strong></a></span><br>
-								<span class="snippet-subline">
-									<a href="#"><span class="lang php">php</span></a>
-									<span class="saved-by">
-										Faved by 14 people
-									</span>
-								</span>
-							</li>
-							<li>
-								<i class="fa fa-star fav-snippet inactive"></i> <span class="snippet-titleline"><a href="snippet"><strong>Dungeon of Doom</strong></a></span><br>
-								<span class="snippet-subline">
-									<a href="#"><span class="lang java">java</span></a>
-									<span class="saved-by">
-										Faved by 4109 people
-									</span>
-								</span>
-							</li>
+
+							<?php } 
+							} else { ?>
+
+							<li><span class="saved-by">No snippets created or updated</span></li>
+
+							<?php } ?>
+
 						</ul>
 					</div>
 

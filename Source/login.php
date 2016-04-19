@@ -1,7 +1,14 @@
 <?php
 // Load global functions and open session
 session_start();
+
+
 include_once('resources/functions/functions.php');
+
+if (isset($_SESSION['login_user'])) {
+	header("Location: index");
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +47,24 @@ include_once('resources/functions/functions.php');
 
 							<hr class="colorgraph">
 
-							<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+							<?php // Error handling
+							echo '<div id="login-alert" class="alert alert-danger col-sm-12';
+
+							if (isset($_GET['e'])) { 
+								if ($_GET['e'] == "snipcreate") {
+									echo '">You must login to create a snippet.';
+								} else {
+									echo ' hidden">No error';
+								
+								}
+							} else {
+								echo ' hidden">No error';							
+							}
+
+							echo '</div>';
+							?>
+
+							</div>
 
 							<form id="loginform" class="form-horizontal" role="form">
 										
@@ -81,9 +105,58 @@ include_once('resources/functions/functions.php');
 									<div class="col-md-12 control">
 										<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
 											Don't have an account! 
-										<a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+										<a href="#" onClick="$('#loginbox').addClass('hidden'); $('#signupbox').removeClass('hidden'); $('#login-alert').addClass('hidden')">
 											Sign Up Here
 										</a>
+										</div>
+									</div>
+								</div>    
+							</form>  
+						</div>
+					</div> <!-- Login box end -->
+
+					<div class="panel panel-info filled hidden" id="signupbox">
+
+						<div class="panel-body">
+
+							<h3>Welcome to Shnip.it!</h3>
+
+							<hr class="colorgraph">
+
+							<div id="login-alert" class="alert alert-danger col-sm-12 hidden"></div>
+
+							<form id="signupform" class="form-horizontal" role="form">
+								
+								<div class="input-group spacer">Please enter a username and password to sign up</div>
+
+								<div class="input-group spacer">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+									<input id="signup-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
+								</div>
+									
+								<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+									<input id="signup-password" type="password" class="form-control" name="password" placeholder="password">
+								</div>
+
+
+								<div style="margin-top:10px" class="form-group">
+									<!-- Button -->
+
+									<div class="col-sm-12 controls">
+									  <a id="btn-signup" href="#" class="btn btn-success">Sign up  </a>
+									  <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>-->
+
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<div class="col-md-12 control">
+										<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+											<a href="#" onClick="$('#signupbox').addClass('hidden'); $('#loginbox').removeClass('hidden'); $('#login-alert').addClass('hidden')">
+												I already have an account!
+											</a>
 										</div>
 									</div>
 								</div>    
@@ -104,19 +177,47 @@ include_once('resources/functions/functions.php');
 		<script>
 		$(document).ready(function() {
 
-			var hashes = [
-				{id: 'jamiewarb@gmail.com', hash: '84ea8e3ae685162c6bac9fb223535330'}
-			];
-			var i, data;
-			data = new Identicon(hashes[0].hash, 130).toString();
-			document.getElementById("profile-image-id").src='data:image/png;base64,' + data;
+			$('#loginform').keypress(function(e){
+				if(e.keyCode==13)
+					$('#btn-login').click();
+			});
 
-			$('i.fa-star').click(function() {
-				if ($(this).hasClass("inactive")) {
-					$(this).removeClass("inactive");
+			$('#signupform').keypress(function(e){
+				if(e.keyCode==13)
+					$('#btn-signup').click();
+			});
+
+			$('#btn-login').click(function() {
+				$('#login-alert').addClass('hidden');
+				var username = $('#login-username').val();
+				var password = $('#login-password').val();
+				if ($.trim(username).length>0) {
+					if ($.trim(password).length>0) {
+						var dataString = 'username='+username+'&password='+password;
+						$.ajax({
+							type: "POST",
+							url: "ajaxLogin.php",
+							data: dataString,
+							cache: false,
+							// beforeSend: function(){ } //set the button to loading or something
+							success: function(data){
+								if (data == "success") {
+									window.location.href = "index";
+								} else {
+									// $('#loginbox').shake();
+									// Undo the beforeSend shit here
+									$('#login-alert').html("Invalid username or password. Please try again").removeClass('hidden');
+									alert(data);
+								}
+							}
+						});
+					} else {
+						$('#login-alert').html("Please enter your password").removeClass('hidden');
+					}
 				} else {
-					$(this).addClass("inactive");
+					$('#login-alert').html("Please enter your username or email address").removeClass('hidden');
 				}
+				return false;
 			});
 		});
 		</script>
