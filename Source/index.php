@@ -10,7 +10,7 @@ $datas = $database->select("snippets", [
 	"snippets.id",
 	"snippets.creator_id",
 	"snippets.created_date",
-	"snippets.snippet_votes_count",
+	"snippets.total_favs",
 	"snippets.child_snippet_ids",
 	"snippets.privacy_setting",
 
@@ -29,7 +29,7 @@ $datas = $database->select("snippets", [
 	"users.infoline2"
 ], [
 	"LIMIT" => 10,
-	"ORDER" => "snippets.snippet_votes_count DESC"
+	"ORDER" => "snippets.total_favs DESC"
 ]);
 
 // If we found something
@@ -100,7 +100,7 @@ if (!$datas) {
 									<? } ?>
 								</span>
 								<span class="saved-by">
-									-- faved by <?php echo $data["snippet_votes_count"]; ?> people
+									-- faved by <?php echo $data["total_favs"]; ?> people
 								</span>
 							</span><br>
 							<span class="snippet-byline">

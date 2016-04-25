@@ -31,6 +31,14 @@ $database->insert("users", [
 	"password" => $pass,
 	"firstname" => "Jamie",
 	"lastname" => "Warburton"
+]);
+
+
+
+$database->update("users", [
+	"password" => $passwordHash
+], [
+	"username" => $username
 ]);*/
 
 ?>

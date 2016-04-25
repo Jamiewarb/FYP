@@ -16,7 +16,7 @@ if (isset($snippet_id)) {
 	],[ 
 		"snippets.creator_id",
 		"snippets.created_date",
-		"snippets.snippet_votes_count",
+		"snippets.total_favs",
 		"snippets.child_snippet_ids",
 		"snippets.privacy_setting",
 
@@ -44,7 +44,7 @@ if (isset($snippet_id)) {
 		foreach($datas as $data) {
 			$creator_id = $data["creator_id"];
 			$created_date = $data["created_date"];
-			$snippet_votes_count = $data["snippet_votes_count"];
+			$total_favs = $data["total_favs"];
 			$child_snippet_ids = $data["child_snippet_ids"];
 			$privacy_setting = $data["privacy_setting"];
 
@@ -184,11 +184,7 @@ if (isset($snippet_id)) {
 								</span>
 								<small><a href="snippet-history?s=<?php echo $snippet_id; ?>">View History</a></small>
 							</h5></li>
-							<li><h5><small>Created by <a href="profile?u=<?php echo $created_username; ?>"><?php echo $created_username; ?></a> - 
-								<span class="time-moment" data-len="2" datetime="<?php echo $created_date; ?>">
-									<?php echo date('M d \'y \a\t G:i', strtotime($created_date)); ?>
-								</span>
-							</small></h5></li>
+							<li><h5><small><?php echo ucfirst($privacy_setting); ?> snippet</small></h5></li>
 						</ul>
 					</div>
 				</div>
@@ -209,6 +205,11 @@ if (isset($snippet_id)) {
 									<li>
 										<h5><?php echo $created_infoline2; ?></h5>
 									</li>
+									<li><h5><small>Created 
+										<span class="time-moment" data-len="2" datetime="<?php echo $created_date; ?>">
+											<?php echo date('M d \'y \a\t G:i', strtotime($created_date)); ?>
+										</span>
+									</small></h5></li>
 								</ul>
 							</div>
 						</div>
