@@ -144,45 +144,14 @@ Therefore, we have identified five problems with developers, code reuse and the 
 \include{ReqDesign}
 
 
-\chapter{Implementation \& Testing}
-This is the chapter in which you review the implementation and testing
-decisions and issues, and critique these processes.
+%% Chapter for the Implementation and Testing
+\include{ImplementTest}
 
 
-\chapter{Evaluation}
-This is the chapter in which you review the outcomes, and
-critique the outcomes process.  You may include user evaluation here
-too.
+\include{Evaluation}
 
-Code can be output inline using \verb@\lstinline|some code|@.  For example,
-this code is inline: \lstinline|public static int example = 0;|  (I have
-used the character \verb@|@ as a delimiter, but any non-reserved character
-not in the code text can be used.)
+\include{ResultsAnalysis}
 
-Code snippets can be output using the \verb|\begin{lstlisting} ... \end{lstlisting}|
-environment with the code given in the environment.  For
-example, consider listing \ref{Example-Code}, below.
-
-\begin{lstlisting}[breaklines,breakatwhitespace,caption={Example code},label=Example-Code]
-public static void main() {
-
-  System.out.println("Hello World");
-
-}
-\end{lstlisting}
-
-Code listings are produced using the package ``Listings''.  This has many
-useful options, so have a look at the package documentation for further
-ideas.
-
-
-\chapter{Results \& Analysis}
-This is the chapter where you review your results and analyse them.
-
-
-%%
-%% Now we are back to the standard project contents that you should include
-%%
 
 \chapter{Conclusions \& Discussion}
 %% Uncomment this to include a separate tex file wih the conclusion contents
@@ -203,13 +172,20 @@ own learning and identify possible future work.
 %% these to your own requirements
 %%
 
+\include{UsabilityStudy} \label{appendixusabilitystudy}
+
+\include{PilotStudy}
+
+\include{QuantitativeStudy}
+
+\include{CodeExcerpts}
+
+
 \chapter{Design Diagrams}
 
 \chapter{User Documentation}
 
 \chapter{Raw results output}
-
-\chapter{Code}
 
 %%
 %% NOTE that for this to typeset correctly, ensure you use the pdflatex

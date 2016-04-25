@@ -17,7 +17,7 @@ We begin by translating the previous core features in to functional and non-func
 These requirements are somewhat flexible in that they don't fully describe the intended system, but are instead guides built from the identified features to provide us with direction for design and a means of ensuring the system meets its intended purposes.
 
 
-\subsection{Non-functional Requirements}
+\subsection{Non-functional Requirements} \label{nonfuncreq}
 \textbf{These Requirements have a high priority}
 
 \begin{requirements}
@@ -100,9 +100,91 @@ These requirements are somewhat flexible in that they don't fully describe the i
 
 \subsection{Problem Domain}
 
-There are many hundreds of programming languages, each unique from each other and often with wildly varying syntaxes.  
-The system will need to cope with these in some manner, whether it be to maintain a generic flow to encorporate all languages while sacrificing some features or functionality, or to choose a subset of the most notable languages and only allow these to be used.
+There are many hundreds of programming languages, each unique from each other and often with wildly varying syntaxes. 
+One of many design decisions we must make is how to cope with these, whether it be to maintain a generic flow or to choose a subset of the most notable languages to support.
+Therefore, below we highlight a number of these points to be considered, and then discuss the design criterions we will follow to alleviate the issues identified. They are as follows:
 
+\begin{enumerate}
+  \item Accounts - What will only be accessible by users logged in to an account? 
+  \item Languages available - What programming languages can the users submit?
+  \item Navigation - How will the users traverse the website?
+  \item Aesthetics - How will the website look and feel? 
+  \item Collaboration - How will users interact with the content?
+\end{enumerate}
 
+\subsection{Accounts - Accessibility for Authenticated Users}
 
+Privacy is important, and a number of things must obviously be account locked, such as private snippets or boards, account information and some functions like editing profiles. 
+However, we must consider how far this extends past the obvious features. 
+The two extremes in this case, for example, are that the website could be completely inaccessible until a user has made an account, or that anonymous members can use the website and interact, without creating an account.
+
+We feel both of these extremes are unsuited to our system, due to the nature of collaboration and ease of use. 
+With a collaborative system, we feel it is important to maintain accountability for content on the website, and as such providing interaction to anonymous users is not something we want to indulge in. 
+We equally do not want to block users from viewing the content, as potential positive users may be turned off by the necessary account creation. 
+Instead, we opt to follow a tried and tested route of requiring an account for writing, but allowing anonymous reading.
+
+This particular method is seen often on the internet, employed by huge, collaborative websites such as Wikipedia, Stack Overflow and Reddit, allowing minimal barriers of entry, while maintaining content integrity and accountability. 
+As such, the system will be viewable by all without an account, where appropriate, but any submittal of content or comments shall be account protected.
+
+\subsection{Languages Available}
+
+Every experienced programmer understands syntax highlighting, and how it makes our code much easier to interpret, and in a system such as this it's an extremely useful addition. 
+However, each language has its own syntax highlighting markup which must be written and added to the website. This increases storage use, as well as bloat on the website when creating a snippet.
+
+Ultimately, we have the options of maintaining a generic flow to incorporate all languages while sacrificing some features or functionality, such as Syntax Highlighting, or to choose a subset of the most notable languages and only allow these to be used. 
+We will opt for the latter option of a subset of languages, but exploit the collaborative nature of the website by providing functionality for future languages to be added, subject to voting from the community.
+If votes reach a certain threshold, such as 10% of the active community voting for it, the language will be added to the website for use.
+This enables us to maintain relevancy as programming languages advance and develop, as well as avoiding bloating within the website.
+
+\subsection{Navigation - Traversing the Website}
+
+Naturally, websites have many pages, sorted by functionality or categorically, and these pages require a form of navigation.
+We must therefore decide how to present this navigation, by building on our previous experience, and what we've learned from the websites featured in the previous chapter.
+Of the websites visited, almost all of them had some form of navigation bar at the top of the page. 
+This was also often accompanied by a search bar, allowing for quick navigation of content, whether the user knew it existed or not.
+It was also common to see links to active or popular content, such is the case with Stack Overflow, Snipplr, GitHub, Pastebin and more.
+
+Gists opted to have a plain homepage with immediate snippet creation to increase ease of use - the same can be seen with codepad and pastebin, however all three services initially start as a paste search, with Gists then transforming into a project repository.
+We decided displaying active and popular content is more logical for our system than allowing quick snippet addition, especially as adding new snippets requires the user to first have an account.
+However, for first time users, we will include an alert box with a link to creating their first snippet. GitHub takes this approach, allowing first time users to quickly create their first repository, and we feel it will help users to understand and engage with the website faster.
+
+From this research, we decided to implement a navigation bar with attached searchbar, as well as active and popular snippets listed on the home page. 
+The navigation bar will give a broad range of options to the user, without drilling too deep.
+We opted to have a single submenu within the navigation bar for simplicity, which in turn helps keep the website easy to use with a simplistic layout.
+
+Website navigation will be one of the features analysed through 1 on 1 interviews and demonstrations in the evaluation section, as we believe it is an integral part of the usability of the repository - as mentioned in the literature review of this dissertation, if writing the code is faster than reusing the code, user's will not use the repository.
+Therefore we believe navigation is a key feature for analysis.
+
+\subsection{Aesthetics - Website Look and Feel}
+
+This criterion is much more subjective than the previous, but requires much thought.
+The forefront of the design is usability, though this is mostly catered to by the previous criteria. 
+As such, we will build from those to present a pleasing design that is functional and user friendly. 
+
+We began by deciding a natural order of navigation throughout each page, and using font sizing and white space to create sections in the logical order. 
+This allows for a simplistic and intuitive feel to the web pages, while promoting usability. 
+We carried this look and feel across the website, sectioning content into a natural order on the page with the use of white space and font sizing. 
+We also chose to use accentual colours to highlight interactive or important content, such as favouriting a snippet or viewing more content.
+
+Furthermore, through this process we aimed to design for recognition, rather than recall, which helps to ensure the site is easy to use for both new and experienced users.
+Where snippets or boards are displayed in lists, styling and information is consistent.
+This allows for easy recognition when navigating snippets, no matter where the user is on the site, as they can intuitively  identify that they are looking at a snippet list.
+A similar structure and styling is used on the actual snippet pages to display information about that snippet. 
+
+\subsection{Collboration - User Interaction}
+
+This is a highly important criterion as it's the basis of the collaboration element of the system, and as such is another that will receive attention in the evaluation section. 
+All users will have access to view all public snippets, and these public snippets will have a number of methods to interact with them, providing the user is logged in to an account (see criterion "1. Accounts" above).
+Interaction includes leaving a comment, favouriting a snippet, rating a snippet and requesting an edit to a snippet. 
+
+These functionalities are the heart of ensuring the repository is updated with advancements in languages, as well as the peer review of snippets in the repository.
+The overall aim of these features are to provide positive collaboration that benefits all users by ensuring quality, updated code.
+
+\section{System Name}
+The system has been affectionately referred to as Shnip It, deriving from Snip it, and with the advent of new domains, including .it, the system took on the visual representation Shnip.it.
+We felt this name suited the simplicity we aimed for with the system, as well as matching with the nature of the website and its snippets.
+
+\section{Conclusion}
+Throughout this chapter we have detailed our system requirements and translated our research into design criteria for our system.
+The next chapter explores the implementation of the system, disclosing and attributing the external software, frameworks and tools we used to build the system.
 

@@ -7,3 +7,109 @@
 Throughout this chapter we look at the results of our quantitative study, and analyse them to determine the answers to the questions laid out in section \ref{overallgoals}, as well as how well the system meets our requirements, and ultimately our hypotheses. 
 
 \section{Overview}
+For each of the systems involved in the study, we evaluted a the time taken to complete each task, in order to determine the answer to the 5 criteria set out in section \ref{quantitativestudy}.
+We also recorded the number of times a user deviated from the expected route, in order to gauge efficiency, though this was a less important measurement.
+These heuristics allowed us to test for speed, as well as give us a more quantitative description of how clear and simple the system may be to use.
+
+It is worth noting that, through the study, the participants were not aware that they would be timed to complete the task.
+We hoped that by not alerting them of this fact, we would maintain realistic use of the system, and that users would not attempt to complete tasks quickly.
+This is important as we are calculating speed, so we want it to be accurate, and if the user is rushing or attempting to complete the tasks quickly, they have the potential to affect the outcome both, either by completing it quicker than usual, or by making mistakes resulting from rushing.
+Ultimately we decided to try and ensure this doesn't happen.
+
+\section{Heuristics}
+
+\subsection{Speed - Time Taken to Store}
+Within the regular file system, when storing a snippet, the users would need to create a blank text file to store the snippet. This was quick, but meant there was no standardisation of storage, and different files may contain different data, or none at all. 
+However, this did mean that storing the snippet was much quicker, as simply creating the file and pasting the snippet in to it was fast.
+
+As for Gist, there were more steps between creating the snippet and saving it, though this did then incorporate meta data and a standardised method of storage. 
+Equally the time period of creating the snippet to saving the snippet was only a few second (5 to 10) longer than that of the text files.
+
+Finally, Shnip It had the longest time to create and save the snippets, due to the inclusion of even more metadata, however again this was around 5 to 10 seconds longer than Gist.
+
+Speed, however, is two-fold, as we must look at both storage and retrieval. 
+Storing the snippet is a one-time execution, and reusing the snippet is a much more common action.
+As such, we place more weight on the results of our speed test for snippet retrieval.
+
+\subsection{Speed - Time Taken to Retrieve} \label{speedretrieve}
+The regular file system suffered from a number of drawbacks that hampered its speed of retrieval, relating mostly to ambiguity.
+
+Initially, the snippets can be stored altogether, or grouped into folders.
+If stored together, the user has only the name of the text file to decide what's in the file and if it's the desired snippet.
+It is also very difficult to navigate or search due to the lack of structure.
+If a system of folders is introduced, as some users decided to do, further ambiguity can present itself if the structure is not well defined.
+It was found that users would forget which folder the snippet they required was in, and would spend periods of time navigating in and out of folders. 
+This also does not solve the problem of only having the file name to discern what the snippet was.
+
+With Gist, the metadata was useful, and the standardised storage method allows a better representation of the snippets than the file storage system. 
+A portion of the code is also displayed when the snippets are listed, allowing the user to see the first few lines of the code, and aid in discerning if this is the correct snippet.
+Despite this, users were found to spend a good portion of time scrolling up and down through the list of snippets in order to find the one they required, due to the nature of the user interface and minimal metadata. 
+The Gists did not always have descriptions, as some users did not provide them, and there were no tags to quickly digest what the snippet contained.
+
+Finally, Shnip It had the fastest retrieval time, though beating Gist on average by 2 seconds per snippet, but bettering the regular file system by over a minute.
+It was seen that users would more accurately select the correct snippet first time due to the extra metadata provided, and the clearer layout of listing the snippets.
+However, when the user did pick the incorrect snippet, the website had to load the snippet for them to discover it was incorrect, and as such they would have to go back to the listing of snippets, causing two page loads.
+This could be mitigated by providing a method of viewing the code without clicking on it, such as Gist does, but to present it on mouseover rather than embedded in the search results, as to refrain from cluttering the page.
+
+\subsection{Speed - Overall Results}
+Throughout the speed test, it was seen that the system with the least detail was faster to store snippets in, but that this 'cutting corners' led to a much increased time to retrieve those snippets. 
+As retrieval occurs more frequently than storing, this played a large factor in our judgement of overall speed.
+As such, we feel this satisfies the requirement of our system to be on par with existing systems.
+
+We leave for a future study the effects of these systems with a small amount of snippets versus the same systems filled with a large amount of snippets, and test retrieval times in those situations.
+Our hypothesis for such a study is that the negative effect of high load on Shnip It and Gist will be minimal, but that same effect will be far greater on the regular file system, further promoting Shnip It.
+
+%% TODO Should we do something about testing an empty or low amount of snippets versus a high amount of snippets?
+
+\subsection{Deviations - Efficiency}
+Before discussing deviations, it is worth repeating that this heuristic is not as important to use, as it is not a goal of our system to be efficient - that is, to minimise the path from start to end - and so is analysed in less detail.
+It was, however, data available to us, and as such is looked in to as some measurement.
+
+We considered a deviation to be any scenario where an action was taken that led to some unnecessary intermediary page or folder, such as when searching for a specific call-to-action on a website, or entering a folder which doesn't hold the contents you're looking for.
+As such, the optimum route is one where no deviations occur, and all pages viewed are necessary to achieve the goal.
+
+For some tasks, a short cut would result in a more optimum route (such as a notification leading straight to a specific page with a single button press). In these cases, it was chosen to ignore shortcuts for the purpose of this analysis, and to treat them as equal to the optimum route if the user made use of them.
+
+It was found that storing a snippet in the regular file system often resulted in several deviations, as users would navigate between folders, exploring the current contents before deciding where to store the snippet.
+On the contrary, very little, if any, deviation was found when using Gist or Shnip It, which suggests a simple and clear system with little ambiguity.
+
+As for snippet retrieval, there was great deviation found in the regular file system, most likely due to having just the filename to distinguish the files. 
+
+Gist had very little deviation, due in part to its metadata, but also because part of the snippet is visible within the snippet list.
+Once the snippet was present on the page, there was almost no deviation before it was found.
+
+Shnip It was slightly outperformed in this case, as similar snippets can be mistaken for each other, and no part of the code is given until the snippet is opened.
+The suggestion provided in section \ref{speedretrieve} of showing the snippet on mouse rollover would mitigate this extra deviation, and in most cases eliminate it entirely.
+
+As such, we can again say Shnip It is on par with existing solutions, within our margins, and that it can be further improved, both in speed and efficiency, with the suggestion mentioned.
+
+\subsection{Limitations of our Analysis}
+Our analysis is subject to some limitations, by nature of the task, and constraints out of our control.
+
+Users were instructed to create their own folder structure for the task, and as such the exact structures differed, though they were verbally advised to group the snippets by coding language and then functionality. 
+This meant that some users had deeper folder structures than others, while some had no organisation at all. 
+As such, speed was somewhat affected in these edge cases, though the majority of users (9) had a maximum folder depth of 2, as recommended. 1 user had no folder structure, 1 had a depth of 1 and the last had a maximum depth of 3.
+
+Furthermore, deviations for the file system were then regarded as those folders entered and exited unnecessarily, in hindsight, and also files opened that weren't required.
+These figures evened out amongst the different file structures, and so didn't affect deviations as much.
+Speed, however, appeared to be reduced by the lack of structure, though this is impossible for us to prove from our results due to the nature of the data collected, so we just note it as a limitation.
+
+We performed no analysis of participants skill level with either the file system or with Gist prior to the study, and as such we don't analyse the results as first time users for these systems. 
+Instead, they're analysed as that of 'at least a beginner user'.
+We also examine the use of Shnip It as 'at most that of a beginner', and so we use this crossover level of beginner through our analysis of the results.
+
+\section{Analysis Breakdown}
+\subsection{Overview}
+We now look deeper at our results, with our original goals in mind.\\
+As a reminder for the reader, these are:
+
+\textbf{Goal 1: To create a snippet repository that is at least on par with existing solutions for storage and retrieval of snippets}. \\
+\textbf{Goal 2: To create a system that enables users to collaborate on their saved snippets, to promote quality and keep them up to date}.
+
+
+
+
+
+
+
+
