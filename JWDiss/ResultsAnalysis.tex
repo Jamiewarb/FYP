@@ -4,7 +4,7 @@
 %%too.
 
 \section{Introduction}
-Throughout this chapter we look at the results of our quantitative study, and analyse them to determine the answers to the questions laid out in section \ref{overallgoals}, as well as how well the system meets our requirements, and ultimately our hypotheses. 
+Throughout this chapter we look at the results of our quantitative study, and analyse them to determine the answers to the questions laid out in section \ref{overallgoals}, as well as how well the system meets our requirements, and ultimately our goals. 
 
 \section{Overview}
 For each of the systems involved in the study, we evaluted a the time taken to complete each task, in order to determine the answer to the 5 criteria set out in section \ref{quantitativestudy}.
@@ -18,7 +18,7 @@ Ultimately we decided to try and ensure this doesn't happen.
 
 \section{Heuristics}
 
-\subsection{Speed - Time Taken to Store}
+\subsection{Speed - Time Taken to Store} \label{storespeed}
 Within the regular file system, when storing a snippet, the users would need to create a blank text file to store the snippet. This was quick, but meant there was no standardisation of storage, and different files may contain different data, or none at all. 
 However, this did mean that storing the snippet was much quicker, as simply creating the file and pasting the snippet in to it was fast.
 
@@ -64,6 +64,7 @@ Our hypothesis for such a study is that the negative effect of high load on Shni
 \subsection{Deviations - Efficiency}
 Before discussing deviations, it is worth repeating that this heuristic is not as important to use, as it is not a goal of our system to be efficient - that is, to minimise the path from start to end - and so is analysed in less detail.
 It was, however, data available to us, and as such is looked in to as some measurement.
+We will not, however, be performing a deeper analysis on efficiency.
 
 We considered a deviation to be any scenario where an action was taken that led to some unnecessary intermediary page or folder, such as when searching for a specific call-to-action on a website, or entering a folder which doesn't hold the contents you're looking for.
 As such, the optimum route is one where no deviations occur, and all pages viewed are necessary to achieve the goal.
@@ -106,10 +107,236 @@ As a reminder for the reader, these are:
 \textbf{Goal 1: To create a snippet repository that is at least on par with existing solutions for storage and retrieval of snippets}. \\
 \textbf{Goal 2: To create a system that enables users to collaborate on their saved snippets, to promote quality and keep them up to date}.
 
+We use the quantitative elements of this study to assess the first goal, being the 6 tasks and the timed screen recording, as this provides us with the necessary numerical analysis.
+We look further into the second goal in the next chapter, as we evaluate the post-study questionnaires to examine more qualitative data regarding the users preferred systems and their thoughts and opinions surrounding the collaborative elements.
+
+For ease of reading, throughout this analysis we refer to the default file system as \textbf{FS}, Gist as \textbf{Gist}, and Shnip It as \textbf{SI}.
+
+\subsection{Analysis of Speed}
+Firstly, we present a clustered column graph in figure \ref{speedresultsgraph} detailing the breakdown of speed across the 3 systems, detailing the users average speeds in the 6 tasks.
+
+\begin{sidewaysfigure}[htbp]
+\centering
+\includegraphics[width=20cm]{SpeedResultsGraph}
+\caption{Time taken in seconds per task performed, for each of the 3 systems \label{speedresultsgraph}}
+\end{sidewaysfigure}
+
+This graph details the time, in seconds, it takes a user to complete a task, and is measured from the moment the user first interacts with the system, to the moment the final keypress or action button is clicked. 
+For retrieval, this includes highlighting and copying the snippet, and for storage this is the action which saves the snippet.
+Smaller bars represent a faster system, and as such, the more desireable outcome.
+
+It is interesting to note that, for storage, FS consistently achieved the fastest time, however in all other tasks it was deemed the slowest, and in some cases, by a considerable margin. 
+The opposite was true for Gist, scoring slower in storage, but faster in retrieval.
+It's clear SI was the slowest in retrieval, and this seemed mostly due to the extra metadata that users had to input, though this then went on to ensure it was much faster than FS for retrieval, and in good competition with Gist, being the fastest for 2 of the 4 retrieval tests, and only a second slower otherwise, on average.
+
+As noted in section \ref{storespeed}, more importance was placed on retrieval, as it's a more common action than storage.
+As such, this graph provides a positive outlook on our first goal: that the system is at least on par with current solutions. 
+
+We now look further in-depth into the statistical analysis of our individual tasks, and then go on to provide some insight on observed behaviours gleaned from the screen recordings in section \ref{observationanalysis}.
+
+\subsection{Analysis of Speed by Task}
+\subsubsection{Task 1: Storing Snippet within an Empty System}
+\begin{table}[H]
+\label{speedtabletask1}
+\begin{tabular}{ll}
+\hline
+\textbf{System} & \textbf{Speed (s.d. err)} \\ \hline
+FS              & 18 (0.2462)     \\ 
+Gist            & 24 (0.4082)     \\ 
+SI              & 30 (0.5383)     \\ \hline
+\end{tabular}
+\end{table}
+
+Mean speed differed statistically significantly between systems. \\
+(F = 217.7033, p \textless 0.0001)
+
+Gist speed significantly faster than SI (p \textless 0.001). \\
+FS speed significantly faster than SI (p \textless 0.001). \\
+FS speed significantly faster than Gist (p \textless 0.001). \\
+
+Not in line with Goal 1 of the system, though this test for storage is less important than retrieval.
+
+\subsubsection{Task 2: Storing Snippet within a Fuller System}
+\begin{table}[H]
+\label{speedtabletask2}
+\begin{tabular}{ll}
+\hline
+\textbf{System} & \textbf{Speed (s.d. err)} \\ \hline
+FS              & 20 (0.2132)     \\ 
+Gist            & 23 (0.3257)     \\ 
+SI              & 29 (0.2752)     \\ \hline
+\end{tabular}
+\end{table}
+
+Mean speed differed statistically significantly between systems. \\
+(F = 277.2, p \textless 0.0001)
+
+Gist speed significantly faster than SI (p \textless 0.001). \\
+FS speed significantly faster than SI (p \textless 0.001). \\
+FS speed significantly faster than Gist (p \textless 0.001). \\
+
+Again, not in line with Goal 1 of the system, however, again, this test for storage is less important than retrieval.
+
+\subsubsection{Task 3: Retrieving Snippet from within an Empty System}
+\begin{table}[H]
+\label{speedtabletask3}
+\begin{tabular}{ll}
+\hline
+\textbf{System} & \textbf{Speed (s.d. err)} \\ \hline
+FS              & 11 (0.3128)     \\ 
+Gist            & 6 (0.2132)     \\ 
+SI              & 7 (0.2843)     \\ \hline
+\end{tabular}
+\end{table}
+
+Mean speed differed statistically significantly between systems. \\
+(F = 102.161, p \textless 0.0001)
+
+Gist speed significantly faster than FS (p \textless 0.001). \\
+SI speed significantly faster than FS (p \textless 0.001). \\
+Analysis did not show a significant value for SI vs Gist (p = 0.07396). \\
+
+For retrieval in an empty system, Goal 1 is met, as there is no significant difference between Gist and SI, however both systems are significantly faster than FS.
+
+\subsubsection{Task 4: Retrieving Snippet from within a Fuller System}
+\begin{table}[H]
+\label{speedtabletask4}
+\begin{tabular}{ll}
+\hline
+\textbf{System} & \textbf{Speed (s.d. err)} \\ \hline
+FS              & 35 (0.4606)     \\ 
+Gist            & 17 (0.5198)     \\ 
+SI              & 12 (0.2462)     \\ \hline
+\end{tabular}
+\end{table}
+
+Mean speed differed statistically significantly between systems. \\
+(F = 804.637, p \textless 0.0001)
+
+Gist speed significantly faster than FS (p \textless  0.001). \\
+SI speed significantly faster than FS (p \textless  0.001). \\
+SI speed significantly faster than Gist (p \textless  0.001). \\
+
+For retrieval in a fuller system, Goal 1 is exceeded, as SI is significantly faster than both other systems.
 
 
+\subsubsection{Task 5: Finding and Updating a Specific Snippet}
+\begin{table}[H]
+\label{speedtabletask5}
+\begin{tabular}{ll}
+\hline
+\textbf{System} & \textbf{Speed (s.d. err)} \\ \hline
+FS              & 49 (1.3842)     \\ 
+Gist            & 28 (0.3693)     \\ 
+SI              & 19 (0.4167)     \\ \hline
+\end{tabular}
+\end{table}
+
+Mean speed differed statistically significantly between systems. \\
+(F = 321.72972, p \textless 0.0001)
+
+Gist speed significantly faster than FS (p \textless  0.001). \\
+SI speed significantly faster than FS (p \textless  0.001). \\
+SI speed significantly faster than Gist (p \textless  0.001). \\
+
+Again, Goal 1 has been exceeded, with SI being significantly faster than both other systems. 
+It is interesting to note the large deviation in speeds shown by users of FS, and may relate to the folder structure chosen by the participants, or simply that they struggled to find the specified snippet due to the lack of search functions in FS.
+
+\subsubsection{Task 6: Finding a Commonly Used Snippet}
+\begin{table}[H]
+\label{speedtabletask6}
+\begin{tabular}{ll}
+\hline
+\textbf{System} & \textbf{Speed (s.d. err)} \\ \hline
+FS              & 32 (0.8539)     \\ 
+Gist            & 7 (0.1930)     \\ 
+SI              & 8 (0.3015)     \\ \hline
+\end{tabular}
+\end{table}
+
+Mean speed differed statistically significantly between systems. \\
+(F = 689.31443, p \textless 0.0001)
+
+Gist speed significantly faster than FS (p \textless  0.001). \\
+SI speed significantly faster than FS (p \textless  0.001). \\
+Analysis did not show a significant value for SI vs Gist (p = .0168). \\
+
+For this final test of finding a commonly used snippet, Goal 1 is met, as there is no significant difference between Gist and SI, and both systems are significantly faster than FS.
+The reason here is that finding a commonly used snippet is mostly identical between the systems, as SI was inspired by Gist, and both utilise a method of specifying a 'starred' snippet for quick retrieval later.
 
 
+\subsection{Observation of Speed by Task}
+Throughout the tasks, number of observations were made regarding the choices the participants made and how the tasks were completed. 
+We present them here for consideration in a more qualitative manner.
 
+\subsubsection{Task 1: Storing Snippet within an Empty System}
+This task involves using each system in its empty state, with no prior snippets, and simply storing a snippet of code, optionally with metadata.
+
+It was seen that when participants were given a blank folder and a single snippet, they opted not to create any category folders in which to store the snippet, instead opting to simply drop it into the empty folder. 
+This meant that FS was quicker than the other two systems, though users seemed to deliberate on how to to store the snippet in the text file, and what metadata to store with it.
+
+Users that utilised the FS as the third system seemed to store more metadata alongside the snippet. 
+This may be because they understood what may be useful to store with it, or because they believed it was information the researchers wanted them to store, albeit without being told that.
+As such, those users spent longer on the FS than users who utilised it as their first system, where we saw very simple files with minimal information, stored in minimal structure (although this extra time amounted to just a couple of seconds on average).
+
+\subsubsection{Task 2: Storing Snippet within a Fuller System}
+This task is mostly similar to the previous one, and similar observations were made.
+The speed of task completion is also similar, with slight, single second variances, most likely random and insignifcant in comparison with the previous task.
+
+An interesting observation, however, was that users did spent more time on FS than in the previous task, as now they had to navigate their folder structure, whereas previously, having an empty folder, they would simply create and save a text file.
+The extra 2 seconds on average for FS were most likely choosing the folder corresponding to the language of the snippet they were now saving in this system.
+
+\subsubsection{Task 3: Retrieving Snippet from within an Empty System}
+In this task, a single snippet was placed within the system, and the users were given information about it and told to retrieve it.
+It was the only snippet available within the system, so there was no deliberation over multiple snippets.
+
+Interestingly, despite the users knowing the contents of the system, some users navigated to the wrong folders within the structure, though quickly backed out upon finding no snippet in the folder.
+As such, the average time for FS was higher than Gist or SI.
+
+With Gist and SI, the only snippet is immediately available to click on, on the homepage, due to the nature of the systems, and as such allowed users to immediately click it and copy the contents.
+This meant they performed faster than FS, though there was no significant difference between the two. 
+
+All users clicked straight through to the snippet, though some took a second or two longer to consider the navigation bar, before realising the snippet was immediately available.
+
+\subsubsection{Task 4: Retrieving Snippet from within a Fuller System}
+Within this task is where FS started to struggle, showing its limitations.
+Users often clicked through multiple folders, and opened several snippets, before finally finding the snippet they were looking for.
+As such the speed of FS greatly drops in this task, and the more complex systems of Gist and SI begin to show their worth.
+
+With Gist and SI, the metadata seemed to play a significant role in expediting the search process for the snippet, allowing users to pinpoint the correct snippet without having to view the contents, or see the actual source code.
+This cut down on search time considerably, allowing SI to out perform FS, and even managed to out perform Gist.
+It was seen the most likely reason for this is that Gist displays some of the source code along with the snippet, and users seemed to be reading this and taking in more information than with SI, and so slowed down their traversal of the search results.
+
+\subsubsection{Task 5: Finding and Updating a Specific Snippet}
+This task began similarly to the previous one, allowing us to again watch users as they retrieved a snippet from a fuller system, though had the added benefit of actioning on a snippet after finding it.
+
+This task had the most variance in time, specifically for FS, as users again struggled to identify the location of the snippet within the folder hierarchy.
+
+Users of Gist and SI found the snippet with much less trouble, making use of the search features and the metadata to find it switfly. 
+
+Editing of the snippet in all systems was relatively simple and understood by all users, with nothing noteworthy to mention.
+
+\subsubsection{Task 6: Finding a Commonly Used Snippet}
+At the end of Task 3, users were told to make a mental note of the snippet they added to the system, or to use some functionality of the system they were on, with the knowledge that they would need to navigate back to it many times throughout the test. 
+Of course the user did not visit it again until this final task, but it allowed us to instil the the mentality of a commonly used snippet in the user's mind.
+
+Most users used the favourite button on both Gist and SI to save the snippet to a particular location, whereas when using FS, they could only attempt to memorise the location.
+As such, FS had a much slower relocation time than Gist and SI, as with the latter, participants could instantly pull up a list containing the snippet. 
+
+One user of SI didn't make use of the favourite button, and instead just searched for the snippet, as in Task 4, which reduced the overall average time by 1 second.
+It is unclear whether the user wasn't aware of the favourite function or chose not to use it, however all other 11 participants used the function. 
+Further analysis could be done in this area to conclude the reasoning behind this.
+
+\section{Analysis Overview}
+This analysis has shown that the first goal of the system has been met: that the system is at least on par with other available systems.
+The second goal of the system - that the system enables users to collaborate, ultimately promoting code quality - is yet to be assessed, and will be evaluated via the post-study questionnaire.
+
+\section{Conclusion}
+In this chapter we have detailed the results of the quantitative study, as well as perform analysis on them to determine if the first goal of our system has been met.
+
+The next chapter analyses the post-study questionnaire to determine the fate of the second goal, as well as disclose our conclusion on the dissertation and project as a whole.
+We also go on to discuss future work available to the system.
+
+ 
 
 
