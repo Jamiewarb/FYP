@@ -1,0 +1,110 @@
+\chapter{Introduction}
+
+\section{Problem Knowledge}
+
+\subsection{Code Reuse}
+Writing reusable code is the act of developing (usually) modular code with two goals in mind: how it fits in to the current project, and how it can be used in future projects.
+
+Therefore, code reuse is specifically using existing code to produce new software, and reusability is the indicator of how likely it is that a section of code can be reused \cite{Frakes2005}.
+ 
+Following the mind-set of reusable code allows for stable subsystems to be used as the foundations on which more complex systems can be built on top, allowing them to develop faster \cite{Yunwen2000}.
+
+Ideal reusable code would have already been developed and tested for accuracy and completeness, allowing the developer to trust in the code and not need to re-develop or test their own version of this code \cite{Grinter2001}.
+
+Therefore, software reuse can improve on the final quality of the software, as well as the developer’s productivity.
+
+\subsection{A Brief History of Code Reuse} \label{codereusehistory}
+It is generally understood that code reuse has been around since programming began: Programmers have been swapping code for as long as there was code to swap; but research into the field can be mostly traced to Douglas McIlroy in 1968, and his proposal for the software industry to be based on reusable components \cite{Naur1969,Jacobson1997}.
+
+Modern day reuse environments have a focus on repurposing existing software assets, and writing or creating those assets to be as reusable as possible. 
+These assets extend further than just code, and include models, requirements, designs and tests \cite{Grinter2001}, or they can be as simple as README files.
+
+\subsection{Small Scale Code Reuse}
+Software developers, notably those that work on smaller day-to-day projects such as web development, are often faced with repeatedly writing similar or identical code when beginning new projects, or creating congruent modules. 
+Furthermore, developers often have resources they wish to access and use regularly, such as normalise.css in web development (for forcing the same default behaviour between all modern browsers).
+
+Despite this commonality, some developers continue to write the same code, wasting development time and effort on each occasion they reproduce this code. 
+
+Others store this code in files on their local machine or in a cloud service, often categorising snippets by use of named folders. 
+This code then remains static, un-shareable and not available for peer review. 
+
+With the ever rapid advancements in software development and individual language evolutions, code stored in this way is prone to going stale and obsolete. 
+This leads us on to talk about code repositories.
+
+\subsection{Code Repositories}
+Code repositories are databases tasked with the management of source code, and can be modelled in a variety of ways, such as relational or object-oriented \cite{Cox1999}.
+
+These repositories are often project orientated, such as with an SVN or Git, where source code is uploaded in entirety and act as a version control for, or snapshots of, a project.
+
+Other repositories are used to store modularised code for reusing in later projects. 
+This paper focuses more on these types of repositories, specifically when using them for short, cross-project, recurrent snippets.
+
+\section{Problem Description} \label{probdesc}
+When looking at these cross-project repositories, a number of issues stand out in relation to how the developers use and interact with the repositories and the reusable code itself. 
+The first and foremost is when developers don’t reuse code at all, and instead opt to continually rewrite it each time.
+
+Next, then, are personal repositories: A user may write a piece of code and store it for reuse, but this code may not be reviewed in the future, leading to stale code. 
+Furthermore, there is no visibility of the code to peers, removing the possibility of peer review or improvement.
+
+The ability to effectively search and sort within the repository is key to its effectiveness, and often personal repositories don’t have adequate features for this.
+This dampens the possibility of finding code even without knowing it exists in the repository.
+
+Finally, the issue of the repository evolving needs to be addressed. 
+As languages evolve, so too must the repository to adapt to the needs of the developer. 
+Often this priority takes a backseat and the repository itself may become inefficient. 
+Therefore, we have identified five problems with developers, code reuse and the repositories itself.
+
+\begin{itemize}
+\item The developer may not reuse at all, and so waste time rewriting code.
+\item The developer may not update code in line with language advancements, leading to stale code. 
+\item The reusable code may have a lack of peer review in a personal or limited use repository.
+\item The repository may not employ effective searching and sorting methods, so the developer may not find the code they require.
+\item Maintaining/modifying the repository itself in response to the evolving needs of the software developer(s). 
+\end{itemize}
+
+Due to the nature of this dissertation and restraints on time, efficient searching and sorting will lie out of scope of the project, and will instead be left for future research and work.
+Such a problem could clearly fill a dissertation of its own, and so is left for just that.
+
+\section{Literature and Technology Review}
+Chapter \ref{littechsurvey} of this dissertation confirms the need for a method of handling small scale code reuse, and research into existing technologies is conducted to explore the efforts already made in this area.
+
+Existing research is investigated to understand the state of code reuse and how it plays a role in current industry.
+We assess a number of papers to comprehend where such research efforts are being spent and whether they line up with our thoughts on small scale code reuse.
+
+Furthermore, we identify a number of existing technologies and evaluate their effectiveness and suitability for small scale code reuse.
+We identify a core set of features from these technologies, and assess the tools with respect to this feature set. 
+We also explore optional features that these tools might implement, ultimately visualising an ideal tool.
+
+We conclude that no existing tool is fully feature rich, and that effort in this area could be applied to further improve the tools available to small scale developers.
+
+\section{Goals of the System} \label{goals}
+We disclose here the goals of the deliverable we aim to produce through this dissertation.
+It is important to note that, if the act of reusing code - that is, finding the snippet and repurposing said snippet - takes longer than writing the code, then naturally such reuse will not be utilised \cite{Krueger1992}.
+It is important, therefore, that the system be fast.
+
+%%TODO Add a reference here for using code reuse must be quick if you have one
+
+As "being fast" is a difficult metric to quantify on its own, we propose that the system should at least be as fast as existing solutions for code reuse.
+This provides a valid metric with which to measure against.
+Furthermore, we propose the system should make use of collaboration tools to solve the problems defined in section \ref{probdesc}.
+
+Ultimately this provides us with two goals for the system:
+
+\textbf{Goal 1: To create a snippet repository that is at least on par with existing solutions for speed of storage and retrieval of snippets}. \\
+\textbf{Goal 2: To create a system that enables users to collaborate on their saved snippets, to promote quality and keep them up to date}.
+
+\section{Dissertation Overview}
+The remainder of this dissertation is composed as follows:
+\begin{itemize}
+\item Chapter 2 - \textit{Literature \& Technology Survey} - Explore existing research to identify the state of small scale code reuse, and identify existing solutions, ultimately confirming the need for further development on a tool.
+\item Chapter 3 - \textit{Requirements \& Design} - Describes the requirements and design of the system, specifically what needs to be built.
+\item Chapter 4 - \textit{Implementation} - Details the specifics of how the system was built, and any novel problems overcome.
+\item Chapter 5 - \textit{Evaluation} - Our evaluation of the system, via a Usability and a Quantitative Study.
+\item Chapter 6 - \textit{Results \& Analysis} - The results and analysis of the Quantitative Study.
+\item Chapter 7 - \textit{Conclusions, Discussion \& Future Work} - A discussion of our analysis and the conclusions we drew. Also presents Future Work for the system.
+\end{itemize}
+
+
+
+
+

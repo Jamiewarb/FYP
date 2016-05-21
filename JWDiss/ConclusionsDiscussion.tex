@@ -1,0 +1,206 @@
+\chapter{Conclusions, Discussion \& Future Work}
+\section{Introduction}
+This chapter aims to take the results and their analysis from the previous chapter, and use them to conclude whether the goals, introduced in section \ref{goals} and explained in section \ref{reminderofgoals}, have been met. 
+We put forward discussion points for these goals, and use the data collected in the post-study questionnaire to support those points.
+Finally, we present conclusions for the dissertation, and discuss opportunities for future work.
+
+\section{Goal Summary}
+The evaluation and analysis chapters of this dissertation were present for the purpose of ascertaining whether our two primary goals for the system had been met.
+Once again, for the benefit of the reader, those goals were: 
+
+\textbf{Goal 1: To create a snippet repository that is at least on par with existing solutions for storage and retrieval of snippets}. \\
+\textbf{Goal 2: To create a system that enables users to collaborate on their saved snippets, to promote quality and keep them up to date}.
+
+
+\section{Evidence of Goal 1}
+The previous chapter presented the analysis of our first goal, and the results are summarised in table \ref{goal1evidence}:
+
+\begin{table}[H]
+\caption{Result of Quantitative Tests} \label{goal1evidence}
+\begin{tabular}{ll}
+\hline
+\textbf{Task} & \textbf{Support/Refute Goal 1} \\ \hline
+1. Storing in Empty               & Refutes   \\ 
+2. Storing in Fuller                & Refutes   \\ 
+3. Retrieving from Empty      & Supports \\
+4. Retrieving from Fuller       & Supports \\
+5. Updating Specific             & Supports \\
+6. Finding Commonly Used  & Supports \\ \hline
+\end{tabular}
+\end{table}
+
+We can see that tasks 1 and 2 refute Goal 1 - that is, Shnip It is not as fast as existing systems in storing the snippet, however this is only a subset of code reuse.
+Overall, storing and retrieving the snippet as one action is at least as fast with Shnip It, and considering retrieval is a more common action than storage, it is clear Task 3 and 4 hold more weight than 1 and 2.
+
+The remainder of the tasks all support the goal, and Task 4 and 5 go so far as to exceed the goal, as Shnip It performed faster than existing solutions.
+
+As such, we conclude that Goal 1 has been achieved.
+
+\section{Evidence of Goal 2}
+In order to build a case for whether Shnip It has achieved its second goal, the qualitative data gathered from the quantitative study, and its exit questionnaire, are utilised.
+
+For the purpose of this conclusion, the goal is split in to 2 parts: the ability to collaborate, and the effect such collaboration has on code quality.
+
+\subsection{Collaboration}
+After completing the 6 tasks, participants had the chance to further examine the system and make use of its collaborative elements, as if they were using it for their own personal use.
+The individual collaboration tools were explained to the participants; after that, they were asked to then explore them, before finally completing the post-study questionnaire.
+
+It was seen that participants were confident submitting snippets, and commenting and rating snippets submitted by the other participants. 
+Some participants sent push requests to edit snippets owned by other participants, who in turn would discuss them within the confines of the website, and ultimately accept or reject them.
+It was seen that even in such a test environment with a small set of users, collaboration was possible and present.
+
+One participant noted that ``\textit{the comments are useful for discussing parts of the code, without having to get too involved in writing}'', which suggests participants can quickly contribute their collaborative opinions and provide thoughtful discussion without even writing code.
+Furthermore, being able to submit edit requests ``\textit{allowed me [sic] to get hands on and show what I think the correct code looks like}'', which provides an obviously collaborative environment for user interaction, allowing code snippets to progress through multiple stages, rather than being written, saved and forgotten.
+
+When asked if the tools designed for collaboration were adequate, one participant reported ``\textit{there is a good range of ways to interact with the code, like rating the snips [sic] to show which are good, or asking questions about them in the comments to help me understand them}''. 
+This supports the idea that the tools work as they should and that users find them useful and fit for purpose. 
+
+However, it was also mentioned that ``\textit{I [sic] saw long conversations that were off-topic, but no obvious way of dealing with or moderating them}''. 
+This quote relates to how there is no approval for comments, and that anyone with an account is able to write anything.
+It highlights an important aspect, and as such will be discussed in section \ref{futurework} Future Work.
+For now, we believe Stack Overflow has an implementation of comments that potentially would work well on Shnip It, and as such, this would be our first point of research when developing them further.
+
+As a result of this analysis, we conclude that the system does allow for collaboration between users, and that the tools provided for collaboration are fit for purpose.
+
+\subsection{Promoting Quality Code}
+One important question still needs to be address: can the collaboration techniques employed be utilised to increase the quality of the reuseable code, and also keep the snippets up to date.
+
+As a test for this, before letting the participants loose on the system, 3 snippets were artificially inserted in the system and given a high rating so they would appear in the top snippets.
+However these snippets were either out of date or incorrect.
+It was our desire that, upon exploring and interacting with the collaborative elements of the system, the participants would discover these artificial snippets, and either discuss them, or ultimately change and update them to improve them.
+
+We saw both discussion and edits being made to all 3 of the snippets, meaning that, with just a group of 12 users, the faulty code was being reviewed and modified, ultimately improving the quality of the code.
+
+One participant commented: ``\textit{I found some code that was wrong, but I didn't wanna [sic] change it. Instead I put a comment, and then some other guys commented too agreeing with me, so I ended up submitting an edit request, which was approved}''.
+This participant found one of the artificial snippets and realised it was incorrect, but was put off from changing it due to the high rating it had already accrued. 
+Instead of ignoring it, he left a comment with his opinions on what he thought was incorrect about it.
+Several other participants did the same thing, creating a conversation that ultimately ended in the participant changing the code and submitting an edit request, which was accepted, and the snippet was now improved.
+
+This shows that the collaborative techniques do promote quality code, as they were utilised to take an incorrect snippet of code, build a dialogue around it, and finally output a correct snippet of code.
+
+A similar scenario was seen with the out of date code, where a conversation formed around a piece of code that stated it was only for an older version of PHP.
+Participants discussed it, and decided they wanted to preserve the old PHP code, but have the new PHP code too.
+The initial edit request contained both pieces of code within the same snippet.
+Interestingly, further conversation around the snippet provoked a second edit request to be submitted, which actually turned the snippet into a collection, and the snippet for the new version of PHP was submitted as a separate snippet within the collection.
+
+Such a scenario demonstrates an eco-system forming within Shnip It, amongst even just 12 users, where they collectively negotiate and decide the best course of action for a particular snippet. 
+
+As such, there is good evidence to suggest that the system's collaborative techniques tend to promote code quality; there is also evidence to suggest that it provides a method of keeping that code up to date.
+
+Based on the analysis of this section, Goal 2 has been met.
+
+\section{Participant's Opinions}
+The post-study questionnaire gathered a number of opinions from participants, which are presented within this section.
+
+Upon being asked which of the systems the participants preferred, 11 of 12 chose Shnip It as their preferred system for code reuse.
+One participant selected Gist, and left a comment saying that this is the tool they are used to already, and that they work frequently with GitHub, which integrates with Gist.
+It was noted that the participant would consider Shnip It if it integrated similarly with GitHub to automatically create a repository from the snippet.
+
+Participants felt that the length of time taken to store and reuse the code was reasonable for Shnip It and Gist, and unreasonable for the File System, and all participants chose Yes, when asked if they thought Shnip It was at least as fast as the other systems.
+
+Shnip It was rated as highly easy to use, averaging a higher score than Gist and a significantly higher score than the file system.
+Furthermore the collaborative elements were decidedly rated as Highly Useful, and all participants chose Yes, when asked if they thought it helped promote quality code.
+
+The opinions of the participants are in line with the goals of the system, and as such further cement our conclusion that the goals of the system have been met.
+
+\section{Summary} \label{conclusionsummary}
+\subsection{Goal 1: Speed}
+The analysis found that the system meets our first goal of being as efficient as the existing systems we tested, and in some scenarios that speed was even improved by Shnip It. 
+As a result, the first goal of our system has been achieved.
+
+\subsection{Goal 2: Collaboration}
+It was witnessed, and reported by participants, that the system provided appropriate tools for collaboration, and that such collaboration was beneficial for the quality of the code, and its relevancy.
+As such, the second goal of our system has been achieved.
+
+\subsection{Participant Opinion}
+Participants of the system decidedly chose Shnip It as the most preferred system, citing it at easy to use, and agreeing that it was both as fas as the existing systems tested, and that the collaboration elements were present, and useful for improving the quality of code.
+This feedback reinforces the conclusion that both goals of the system have been met.
+
+\section{Conclusions}
+We conclude that Shnip It has met the requirements and goals set out before it, and as such, demonstrated that a collaborative snippet repository can be created.
+
+We summarise the journey taken here, and the criteria and goals achieved:
+
+\subsection{Initial Research Criteria}
+We began with the initial criteria identified for the project, from section \ref{probdesc}, excluding out of scope search and sort:
+\begin{itemize}
+\item The developer may not reuse at all, and so waste time rewriting code.
+\item The developer may not update code in line with language advancements, leading to stale code. 
+\item The reusable code may have a lack of peer review in a personal or limited use repository.
+\item Maintaining/modifying the repository itself in response to the evolving needs of the software developer(s). 
+\end{itemize}
+
+The overall project addresses the first point.
+The collaborative elements address the second and third points.
+The final point is addressed in section \ref{evolvewithneeds}, where we discussed maintaining the repository, and its evolution.
+
+\subsection{System Goals}
+In section \ref{goals} we identified 2 main goals for the system, of which we aimed our proposed system to meet: \\
+\textbf{Goal 1: To create a snippet repository that is at least on par with existing solutions for storage and retrieval of snippets}. \\
+\textbf{Goal 2: To create a system that enables users to collaborate on their saved snippets, to promote quality and keep them up to date}.
+
+\subsection{Requirements}
+We specified the requirements in section \ref{requirements}, and detailed how the system had met those requirements in section \ref{requirementsrevisited}.
+
+We noted that all high priority requirements, both Functional and Non-Functional, were met, with the exception of complex search and sort, due to the nature of scope of the dissertation.
+However, several of the Non-Functional requirements were left for evaluation during the Usability Study.
+We also noted that of our 3 low priority requirements, we completed just 1, due to time constraints on the system, but we leave the remaining two for future work (\ref{opensource} Open Source and \ref{gamification} Gamification).
+
+\subsection{Evaluative Studies}
+\subsubsection{Usability Study}
+During this Usability Study, we evaluted several of the Non-Functional requirements that required a first time user, such as \ref{easeofuse} Ease of Use and \ref{simpleandclear} Simple and Clear.
+The full transcript of the study can be found in Appendix \ref{appendixusabilitystudy}.
+
+\subsubsection{Quantitative Study}
+From our Quantitative Study we evaluated 5 questions, found in section \ref{overallgoals}, which were geared around solving our two main goals of the system.
+As such, we evaluted the study with these 5 questions in mind, before performing analysis on them.
+
+\subsection{Analysis and Conclusion}
+Finally, we completed analysis of our studies, and concluded that both goals for the system were met, and that the majority of participants preferred Shnip It over the tested alternatives.
+
+Our system is openly accessible to anyone with an internet connection and a web browser, with no barriers to entry for viewing, and a minimal barrier for contribution: simply, account creation. 
+We feel that the system has demonstrated its validity via the participant opinion questionnaire, and having mets its goals, we feel it could become a beneficial platform for collaborative code reuse.
+
+
+\section{Future Work} \label{futurework}
+Shnip It works as intended, with many features implemented, allowing full use of the system.
+Despite this, there are a number of ways we could improve our system, and further research to be performed.
+
+Initially, the two low priority requirements that were not met could be explored.
+\begin{itemize}
+\item Make the code available via Open Source, and allow further collaboration on the system itself, by opening it to public code edit requests.
+\item Provide gamification elements to the website to promote positive use and repeat interaction, such as achievements for positively interacting with the website or points for having your snippets upvoted.
+\end{itemize}
+
+The system could be refined in areas:
+\begin{itemize}
+\item The comments section could be improved, taking inspiration from Stack Overflow, to relocate long conversations and prevent spam.
+\item Ensuring the system is fully compatible in all browsers, across all devices, including computer, phone and tablet. Furthermore, making the website look good even in older, incompatible browsers.
+\end{itemize}
+
+Further features worth considering:
+\begin{itemize}
+\item Further uses in Education - enabling students to submit code for a lecturer to review and critique, or providing a collaborative learning environment within the website.
+\item Providing interaction with GitHub to create a git repository straight from a snippet, as mentioned by a study participant.
+\item Exposing an API to allow IDEs to hook into the user's account and pull a list of snippets for instant use in the code editor.
+\end{itemize}
+
+Further research can be performed:
+\begin{itemize}
+\item Specifically on the problem of Search and Sort, and creating a well rounded algorithm for it
+\item Research into algorithms to display the most appropriate snippets on the homepage, via rating over time over interaction, etc.
+\end{itemize}
+
+And further studies can also be performed:
+\begin{itemize}
+\item Evaluate how snippet collections should be rated - individually for each snippet in the collection, or collectively for the entire collection.
+\item Further usability studies, as originally intended, to class a broader range of users into the analysis.
+\end{itemize}
+
+
+It is clear there are a variety of ways to further work on the system, and it is likely the author of this dissertation will continue to do so.
+It is clear Shnip It can contribute to the state of code reuse, even if just on a small scale, and ultimately help developers increase both the reusability, and the quality, of their code, raising overall standards of all users.
+It is an exciting prospect to continue development on the project into the future.
+
+
+
