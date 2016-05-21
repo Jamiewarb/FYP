@@ -1,4 +1,4 @@
-\chapter{Evaluation}
+\chapter{Evaluation} \label{evaluation}
 %%This is the chapter in which you review the outcomes, and
 %%critique the outcomes process.  You may include user evaluation here
 %%too.
@@ -25,10 +25,10 @@
 %%ideas.
 
 \section{Introduction}
-Throughout this chapter we evaluate Shnip It, describing how it meets the original intentions of the system and the studies we undertook to appraise this.
+Throughout this chapter we evaluate Shnip It, describing how it meets the original intentions of the system and the studies undertaken to appraise this.
 
 \section{Overview}
-As specified in Section 1.2, we intended for Shnip It to meet a number of criteria:
+As specified in Section 1.2, Shnip It is intended to meet a number of criteria:
 
 \begin{itemize}
 \item Provide a system to allow small scale developers to reuse code
@@ -40,43 +40,45 @@ We also noted that the system should
 \begin{itemize}
 \item Evolve with the needs of software developers. 
 \end{itemize}
-This is distinct from the previous points, as it is related to how the system was, and will continue to be, developed, rather than what was actually developed, and so we shall explore this criteria first.
+This last criterion is distinct from the previous points, as it is related to how the system was, and will continue to be, developed, rather than what was actually developed, and so we shall explore this criteria first.
 
-\section{Evolve with needs of developers}
+\section{Evolve with needs of developers} \label{evolvewithneeds}
 \subsection{Maintaining the Repository}
 The key factor in allowing the repository to evolve with the languages is to build it to be both scalable and easily maleable.
 The simplest method of doing this is to use plugins and libraries that will be updated with the language itself, without changing the API to use them.
 This allows our code to remain the same, but for the actual process and executed code to update appropriately.
 
-As discussed in Chapter \ref{DBSec}, this method was employed for database security, allowing our hashing functions to automatically updated, but it has also been used elsewhere within the website, such as for creating identicons, the WYSIWYG code editor and the syntax highlighter for snippets.
+As discussed in section \ref{DBSec}, this method was employed for database security, allowing our hashing functions to automatically update, but it has also been used elsewhere within the website, such as for creating identicons, the WYSIWYG code editor and the syntax highlighter for snippets.
 
 Having these plugins removes the need to update the code ourselves, and instead allows us to simply update the plugin files, to keep our software up to date.
 
 \subsection{Evolution of the Repository}
-We've discussed one method of maintaining our repository via plugins, but the majority of the website functionality is still written by us, so we need a method of easing the maintenance and future development of this.
-We concluded that the easiest way to ensure this would be to simply build the system using best practices and object oriented programming - that is, considering future development throughout current development, and ensuring that functionality is modular, so parts can be updated in conclusion without affecting their functionality and cohesiveness.
+One method of maintaining our repository has been discussed, which is via plugins, but the majority of the website functionality is still written by us, so a method of easing the maintenance and future development of this is required.
+It was concluded that the easiest way to achieve this would be to build the system using best practices and object oriented programming - that is, considering future development throughout current development, and ensuring that functionality is modular, so parts can be updated and altered without affecting their functionality and cohesiveness.
 
-This meant that throughout development, we endeavoured to maintain general code where we could, while grouping specific, less-general functionality together, meaning the general code could easily be adapted to include new features, and the specific code can simply be changed in one place when necessary. 
+This meant that, throughout development, it became paramount to maintain general code where possible, while grouping specific, less-general functionality together, meaning the general code could easily be adapted to include new features, and the specific code could simply be changed in one place when necessary. 
 For example, when we pull specific data from the database, such as snippet information, we simply call a function which returns an array of the data we want.
 This means, if we were to add an extra field to the snippet data or change it in some manner, we simply need to update one function call to allow it to be used, rather than in all cases where snippet data is collected.
-Similarly, we endeavour to keep our CSS stylings as general as possible, so that they can be used across the website to maintain styling on all elements, such as keeping buttons or containers the same style with little effort.
+This particular function can be found in Appendix \ref{snippetgrab}.
+
+Similarly, it was important to keep the CSS stylings as general as possible, so that they can be used across the website to maintain styling on all elements, such as keeping buttons or containers the same style with little effort.
 This means we can easily change all similar elements across the entire site without complication.
 
 We now move on to look at the remaining 3 criteria, describing the studies we performed and the evaluation methods used.
 
 \section{Evaluative Studies}
 \subsection{Approach} \label{approach}
-Initially, we began with a usability study to get a feel for how users will interact with the system, and to discover how we may improve it before we move on to a quantitative study. 
+Initially, a usability study was conducted to get a feel for how users will interact with the system, and to discover how it may be improved, before we move on to a quantitative study. 
 From this study, we desired to understand how a new user would approach the system, with the key idea being that the user is able to use the system to reuse code, as per our first criteria.
 We also use this study to see how users interact with existing snippets, such as submitting an edit request to update a snippet, as per language advancements, and to improve a snippet submitted by another user.
 These scenarios are tested to assess the second and third criteria mentioned in the Overview of this chapter. 
 
 These tests are performed in the context of our requirements in section \ref{nonfuncreq}, specifically \ref{easeofuse}, \ref{simpleandclear}, \ref{memorability}, \ref{familiarity} which pertain to how well the user can use the system, both initially and after some time.
-It is the aim of this dissertation to perform two usability studies, with the second performed after improvements have been made as a result from the first, but due to time constraints the second usability study is left for future work.
-This also means we cannot test requirement \ref{memorability}, which requires a user to use the system twice with some time inbetween uses.
+\footnote{It is the aim of this dissertation to perform two usability studies, with the second repeated after improvements have been made as a result from the first, but due to time constraints the second usability study is left for future work.
+This also means we cannot test requirement \ref{memorability}, which requires a user to use the system twice with some time inbetween uses.}
 
 Once the usability study was completed, the website was updated as per the feedback. 
-We then continued with the quantitative study, with the overall aim again being to assess the system in a numerical sense.
+We then continued with the quantitative study, with the overall aim again being to assess the system quantitatively.
 We wanted to evaluate how much effort users must expend to perform certain actions, and compare that to the effort with other, similar systems in the context of reusing code. 
 This quantitative study was conducted by 12 users in a counterbalanced, within-subject setting, subjecting the users to 3 tools including Shnip It, and having them perform 6 tasks in each.
 We used 12 users as the counterbalancing meant we had 6 permutations of the study in respect to the order of the tools used, so we must use a multiple of this.
@@ -87,12 +89,12 @@ It has been noted throughout this dissertation that users will not reuse code if
 
 The Usability study was conducted with a target user for the system - an industry professional Web Developer from a digital agency based in London. 
 The user was knowledgeable of code reuse but hasn't used a specific tool built for the purpose of code reuse. 
-He did, however, have a local repository of code snippets stored on his laptop in text files, organised and described via filename, though did comment that he "often found it inefficient to use" when trying to reuse saved snippets.
+He did, however, have a local repository of code snippets stored on his laptop in text files, organised and described via filename, though did comment that he```often found it inefficient to use'' when trying to reuse saved snippets.
 
-The test was conducted on the system of the user's choice, using the browser they are most comfortable with. 
+The test was conducted on the system of the user's choice, using the browser they were most comfortable with. 
 This ended up being on their personal Macbook running OS X El Capitan, in the Google Chrome browser.
 
-Screen recording software was installed on the machine in order to record the user's interaction with the system, and a microphone was used to record the vocal component throughout the interview. As such, a full transcript of the usability study is available in appendix \ref{appendixusabilitystudy}.
+Screen recording software was installed on the machine in order to record the user's interaction with the system, and a microphone was used to record the vocal component throughout the interview. As such, the participant was asked to think aloud, and a full transcript of the usability study is available in appendix \ref{usabilitystudytrans}.
 
 
 \subsection{Overview}
@@ -116,11 +118,11 @@ The user was directed to visit the profile page for one task, as it was unclear 
 The user also understood the concept of the snippets, as was expected due to his background.
 He was able to put into practice his expertise in Web Development, and utilise the system in the intended manner.
 He completed tasks as a new user would when first using the website, as well as tasks that experienced users would perform, such as submitting edit requests and turning existing snippets into collections.
-Appendix \ref{appendixusabilitystudy} details what tasks were performed and the steps taken.
+Appendix \ref{usabilitystudytasks} details what tasks were performed and the steps taken.
 
 After performing a series of tests with the participant, a number of questions were asked. 
 These ranged from first impressions of the system to how the collaborative elements will affect the quality of the reuseable code. 
-Again, these questions and their answers can be found in full in appendix \ref{appendixusabilitystudy}.
+Again, these questions and their answers can be found in full in appendix \ref{usabilitystudytrans}.
 
 Overall the participant found the system simple and clear, and felt it was familiar due to its similarity with other systems.
 And as mentioned earlier, he completed the tasks with very little prompting, lending the system to be easy to use. 
@@ -129,7 +131,7 @@ It follows then, that requirements \ref{easeofuse}, \ref{simpleandclear} and \re
 
 \section{Quantitative Study} \label{quantitativestudy}
 \subsection{Overall Goals} \label{overallgoals}
-As mention in section \ref{approach}, the quantitative study was of a counterbalanced, within-subject, tools (3) x tasks (6) factorial design. 
+As mentioned in section \ref{approach}, the quantitative study was of a counterbalanced, within-subject, tools (3) x tasks (6) factorial design. 
 As such we aimed to determine the ability of each tool in relation to each task, with all users performing all tasks with all tools.
 To avoid carryover effects, such as fatigue or learning of the tools, we counterbalanced the tests by splitting the users into 3 groups of 5 users, and giving each group a different ordering of the tools.
 
@@ -152,31 +154,31 @@ From these tools, we looked to evaluate the answers to the following questions:
 
 Furthermore, we hope to acquire qualititive feedback on top of the above questions, specifically related to how the participants feel the system could be improved, both for reusing code themselves, as well as the collaborative and dynamic elements of the snippets and the system.
 
-\subsection{Reminder of System Goals}
-We would like to take this section to quickly re-touch on the goals of the system.
+\subsection{Reminder of System Goals} \label{reminderofgoals}
 As mentioned previously, we are developing a system that allows users to reuse snippets of code for small scale reuse.
 Furthermore, we are leaving efficient and advanced searching and sorting to future work for this system, and are not making that a focus of this dissertation.
-As such, we are not looking to create a system that is far superior for simple storage and retrieval of snippets, but one that is at least equal to existing possibilities, and excels in the collaborative side of the snippet storage.
+As such, the point is not to create a system that is far superior for simple storage and retrieval of snippets, but one that is at least equal to existing possibilities, and excels in the collaborative side of the snippet storage.
 
 We therefore reiterate our first goal of the system: \textbf{To create a snippet repository that is at least on par with existing solutions for storage and retrieval of snippets}.
-The first two questions noted above are the key to evaluating this goal quantitively, and the third question should open up qualitative feedback for analysis as well.
+The first two questions in section \ref{overallgoals} are the key to evaluating this goal quantitively, and the third question should open up qualitative feedback for analysis as well.
 
 To be at least as quick, \textit{we expect an experienced user to be able to store a snippet in the same amount of time (within 5 seconds) as it would take an experienced user in the other tools to store the same snippet}.
 This should be independent of snippet detail, for example size or language of the snippet.
-The same applies for retrieving a snippet and incorporates snippets that the user knows exists. 
-As searching and sorting isn't included within the scope of this dissertation, neither will the study of testing for retrieval of snippets that the user doesn't know exist, as that is directly tied to search and sort methods, and so is left for future work.
+The same applies for retrieving a snippet and incorporates snippets that the user knows exists, and are easily accessible, either via the homepage or profile, or via simple search techniques.
 
-This then leaves us with question four and five which are targeted at our second goal: \textbf{To create a system that enables users to collaborate on their saved snippets, to promote quality and keep them up to date}.
-The last two questions therefore boil down to, are the participants happy with the collaboration techniques, specifically rating, favouriting, commenting and submitting edit requests, and do the participants feel that these four methods are enough to ensure quality snippets.
+As searching and sorting is not included within the scope of this dissertation, neither will the study of testing for retrieval of snippets that are difficult to find, as that is directly tied to search and sort methods, and so is left for future work.
 
-The final question itself has two sides, which are both expressed to the participants before the study; specifically positive snippets and negative snippets (that is, snippets we want, which are of high quality, and snippets we don't, which are of low quality). 
+Questions four and five are targeted at the second goal: \textbf{To create a system that enables users to collaborate on their saved snippets, to promote quality and keep them up to date}.
+The last two questions therefore boil down to: are participants happy with the collaboration techniques, specifically rating, favouriting, commenting and submitting edit requests; and do participants feel that these four methods are enough to ensure quality snippets.
+
+The final question itself has two sides, which are both expressed to the participants before the study; specifically positive snippets and negative snippets (that is, snippets we want, which are of high quality, and snippets we do not, which are of low quality). 
 The question discusses ensuring high quality snippets, and breaks down to promoting the positive snippets while rejecting or obscuring the negative snippets.
 This also extends to edit requests, and users submitting worse or incorrect snippets, and whether the methods incorporated are sufficient to deal with these problems.
 
 Ultimately these goals define our system as being a better solution than existing tools, and so it is important that both are met.
 This quantitative study is therefore designed to show us if both of these goals have been met, and if not, what we need to improve on in order to meet them both.
 
-\subsection{Pilot Study}
+\subsection{Beginning the Study}
 Initially we ran a pilot study in order to iron out any kinks we may have before conducting the full study.
 Once we were happy with the results, we gathered our 12 participants and began the full study.
 Each user was given a set of tasks and a system on which to perform them, as well as some pre-written snippets that they could use instead of writing their own.
@@ -186,7 +188,8 @@ The study was counterbalanced to try and mitigate any carry over effects such as
 The tasks they were asked to perform are described in more detail in section \ref{tasks}, though they were written as simply as possible to allow the users to use the systems as they felt like.
 
 We also included two questionnaires, one before and one after the study, to learn first of all about the users, their history with code reuse and development in general, then later to ask about their experiences within the study and gauge the answers to the questions for the study.
-These questionnaires are available in Appendix \ref{appendquestionnaires}.
+These questionnaires are available in Appendix \ref{appendixquestionnaires}.
+All users also signed a permission slip for the study - a copy of the permission slip is available in Appendix \ref{appendixpermission}.
 
 \subsection{Participants} \label{participants}
 We opted for a convenience study as we had a number of computer scientists to hand, all of which fit in to the desired demographic of experience with development and code reuse.
@@ -197,20 +200,37 @@ The mean average age of the participants was 21.33, with standard deviation 2.46
 
 %% OS, Browser, Previous Experience with Code Reuse, Systems used for Code Reuse,
 \subsection{Previous Experience} \label{prevex}
-Of the respondents, all used computers or smart devices for over 8 hours a day, and 67% used them for over 11 hours. This shows the participants are experienced users of technology. 
+Of the respondents, all used computers or smart devices for over 8 hours a day, and 67\% used them for over 11 hours. This shows the participants are experienced users of technology. 
 Other categories from 0 to 7 hours were provided, but no participant selected these answers.
 
-The most popular operating system was Windows with 75% of respondents selecting it as their most commonly used, while the remaining 25% opted for Mac. Linux and Other were listed, but neither were chosen.
+The most popular operating system was Windows with 75\% of respondents selecting it as their most commonly used, while the remaining 25\% opted for Mac. Linux and Other were listed, but neither were chosen.
 
-As for the most popular web browser, Chrome was selected by 75% of the participants, with the remaining 25% equally split between Safari, FireFox and Internet Explorer. 
+As for the most popular web browser, Chrome was selected by 75\% of the participants, with the remaining 25\% equally split between Safari, FireFox and Internet Explorer. 
 As such, the tests will be conducted on a Windows machine, in a Chrome web browser. 
 The effects of infamiliarity with this system combination can be hinted at by this study as well, though it's not something we will focus on.
 
 \subsection{Code Reuse}
-The participants were mostly familiar with code reuse, as only 8.3% (1) of participants reported that none of their code is reused, or written with reuse in mind.
-Of the remaining 91%, 66.6% (8) reported either some or most of their code is reused or reusable, which shows a knowledge of the area and proactive thought into code reuse. 8.3% (1) of participants reported that all of their code is either reused, or written with reusability in mind.
+The participants were mostly familiar with code reuse, as only 8.3\% (1) of participants reported that none of their code is reused, or written with reuse in mind.
+Of the remaining 91\%, 66.6\% (8) reported either some or most of their code is reused or reusable, which shows a knowledge of the area and proactive thought into code reuse. 8.3\% (1) of participants reported that all of their code is either reused, or written with reusability in mind.
 This particular user also seemed to have the most experience with existing code reuse tools, but interestingly hadn't used a web-based snippet storage solution akin to this dissertation's deliverable.
 In fact no participants of the study had used a system akin to Shnip It, though we do not delve into why.
+
+\subsection{Study Tasks} \label{tasks}
+The tasks that the participants were to perform are as follows:
+\begin{enumerate}
+\item \textbf{Task 1}: Storing Snippet within an Empty System \\
+For each system, store a predefined code snippet. For this task the system is completely empty.
+\item \textbf{Task 2}: Storing Snippet within a Fuller System \\
+For each system, store a predefined code snippet. For this task the system has many pre-existing snippets already.
+\item \textbf{Task 3}: Retrieving Snippet from within an Empty System \\
+Retrieve a specified snippet from the system. For this task, the system is completely empty, except for the required snippet. In the case of the file system, a folder structure is setup, but all folders are empty, except the one containing the required snippet.
+\item \textbf{Task 4}: Retrieving Snippet from within a Fuller System \\
+Retrieve a specified snippet from the system. For this task, the system has many pre-existing snippets already.
+\item \textbf{Task 5}: Finding and Updating a Specific Snippet \\
+Locate a specified snippet within the system, and update it as directed. For this task, the system has many pre-existing snippets already.
+\item \textbf{Task 6}: Finding a Commonly Used Snippet
+Locate a specific snippet that was pointed out to you earlier in the study as being a snippet you would need to use regularly throughout the study, to mimic your thought process on a commonly used snippet.
+\end{enumerate}
 
 \subsection{Procedure}
 To conduct our study, we gave all 12 participants a unique code which would be their identifier on both questionnaires. 
@@ -219,7 +239,7 @@ They were explained that the only information we would store would be their answ
 
 Further to the anonymity, we explained that it is the system performance being measured, and that in no way are we evaluating the users themselves.
 We made sure the participants understood that we wished them to use the system as they naturally would to complete a series of tasks, and that there was no particular desired outcome. 
-Finally we asked them all to sign two permission slips, one of which was kept by each participant, and were given the contact details of the researchers in case they wanted to get in touch at a later date.
+Finally we asked them all to sign two permission slips, one of which was kept by each participant, and were given the contact details of the researchers in case they wanted to get in touch at a later date. A blank copy of the permission slip can be found at Appendix \ref{appendixpermission}.
 
 Screen recording software was used to record the session for each user, and reviewing this recording allowed us to record how long each user took to complete each task.
 Each user was made aware of the screen recording software and consented to its use.
@@ -234,11 +254,10 @@ Finally, the participants were given the opportunity to read through the instruc
 During this training they were able to ask questions which the researcher would answer, and have their mistakes corrected.
 They were given the opportunity to ask questions at this time, which the researchers would answer, and then the participants were directed to proceed to the first system, and, where appropriate, login with the provided account details.
 
-%% TODO add reference to list of tasks
-Once logged in, the participants began completing the series of tasks, which are available in section \ref{tasklist}.
+Once logged in, the participants began completing the series of tasks, which are available in section \ref{tasks}.
 The researchers aimed to only describe the outcome of the task, and in no way explain how to do it, within the task itself.
 For example, participants may be asked to create a public snippet with a title, description, body, language and search tags.
-The question doesn't specify how they should do it (for example through the Create > Snippet navigation bar, or through the homepage alert box link), and so allowed us to understand how a new user would approach the website. This feeds back into our non-functional requiremements of recognition, familiarity and being simple and clear.
+The question doesn't specify how they should do it (for example through the Create \textgreater  Snippet navigation bar, or through the homepage alert box link), and so allowed us to understand how a new user would approach the website. This feeds back into our non-functional requiremements of recognition, familiarity and being simple and clear.
 %% TODO add an image of the navbar or something
 
 Once the user had completed their list of tasks, they moved on to the next system, where again they were given training and the opportunity to ask questions.
@@ -248,7 +267,6 @@ The same occured with the third system, and all 3 screen recordings were saved t
 Once the participant had finished the tasks with all 3 systems, they were given the exit questionnaire, where we aimed to evaluate their personal opinions of the system and their thoughts on the functionality.
 The answers to this questionnaire provided us with data to evaluate questions 3, 4 and 5 in section \ref{quantitativestudy}, and the screen recordings should allow us to answer questions 1 and 2.
 
-%% TODO Something for tasks - where are they gonna go? Appendix? Pilot Study? Both?
 
 \subsection{Evaluation}
 Initially we look at the screen recordings to begin answering question 1 and 2 for the study.

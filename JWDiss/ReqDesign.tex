@@ -12,7 +12,7 @@ Throughout this chapter, we detail the requirements for our system, both functio
 With these in mind, we then move on to consider the design of our proposed deliverable, and set specific goals for it. 
 All of this will be reflected upon later, and used as measurements of evaluation for the system.
 
-\section{Requirements}
+\section{Requirements} \label{requirements}
 We begin by translating the previous core features in to functional and non-functional requirements, with which we can start to build an idea of the expected functionality of our system. 
 These requirements are somewhat flexible in that they don't fully describe the intended system, but are instead guides built from the identified features to provide us with direction for design and a means of ensuring the system meets its intended purposes.
 
@@ -47,7 +47,7 @@ These requirements are somewhat flexible in that they don't fully describe the i
 \begin{requirements}[resume]
 
     \item Open Source \label{opensource} \\
-	\textit{The system shall be Open Source, allowing others to view all code, except where that code would jeopardise requirement \ref{security} Security.}
+	\textit{The system shall be Open Source, allowing others to view all code, except where that code would jeopardise requirement \ref{datasecurity} Security.}
 
 \end{requirements}
 
@@ -133,7 +133,7 @@ However, each language has its own syntax highlighting markup which must be writ
 
 Ultimately, we have the options of maintaining a generic flow to incorporate all languages while sacrificing some features or functionality, such as Syntax Highlighting, or to choose a subset of the most notable languages and only allow these to be used. 
 We will opt for the latter option of a subset of languages, but exploit the collaborative nature of the website by providing functionality for future languages to be added, subject to voting from the community.
-If votes reach a certain threshold, such as 10% of the active community voting for it, the language will be added to the website for use.
+If votes reach a certain threshold, such as 10\% of the active community voting for it, the language will be added to the website for use.
 This enables us to maintain relevancy as programming languages advance and develop, as well as avoiding bloating within the website.
 
 \subsection{Navigation - Traversing the Website}
@@ -152,8 +152,8 @@ From this research, we decided to implement a navigation bar with attached searc
 The navigation bar will give a broad range of options to the user, without drilling too deep.
 We opted to have a single submenu within the navigation bar for simplicity, which in turn helps keep the website easy to use with a simplistic layout.
 
-Website navigation will be one of the features analysed through 1 on 1 interviews and demonstrations in the evaluation section, as we believe it is an integral part of the usability of the repository - as mentioned in the literature review of this dissertation, if writing the code is faster than reusing the code, user's will not use the repository.
-Therefore we believe navigation is a key feature for analysis.
+%%Website navigation will be one of the features analysed through 1 on 1 interviews and demonstrations in the %%evaluation section, as we believe it is an integral part of the usability of the repository - as mentioned in the literature %%review of this dissertation, if writing the code is faster than reusing the code, user's will not use the repository.
+%%Therefore we believe navigation is a key feature for analysis.
 
 \subsection{Aesthetics - Website Look and Feel}
 
@@ -171,10 +171,10 @@ Where snippets or boards are displayed in lists, styling and information is cons
 This allows for easy recognition when navigating snippets, no matter where the user is on the site, as they can intuitively  identify that they are looking at a snippet list.
 A similar structure and styling is used on the actual snippet pages to display information about that snippet. 
 
-\subsection{Collboration - User Interaction}
+\subsection{Collaboration - User Interaction}
 
 This is a highly important criterion as it's the basis of the collaboration element of the system, and as such is another that will receive attention in the evaluation section. 
-All users will have access to view all public snippets, and these public snippets will have a number of methods to interact with them, providing the user is logged in to an account (see criterion "1. Accounts" above).
+All users will have access to view all public snippets, and these public snippets will have a number of methods to interact with them, providing the user is logged in to an account (see criterion `1. Accounts' above).
 Interaction includes leaving a comment, favouriting a snippet, rating a snippet and requesting an edit to a snippet. 
 
 These functionalities are the heart of ensuring the repository is updated with advancements in languages, as well as the peer review of snippets in the repository.
@@ -184,7 +184,7 @@ The overall aim of these features are to provide positive collaboration that ben
 The system has been affectionately referred to as Shnip It, deriving from Snip it, and with the advent of new domains, including .it, the system took on the visual representation Shnip.it.
 We felt this name suited the simplicity we aimed for with the system, as well as matching with the nature of the website and its snippets.
 
-\section{Conclusion}
+\section{Conclusion} \label{reqconclusion}
 Throughout this chapter we have detailed our system requirements and translated our research into design criteria for our system.
 The next chapter explores the implementation of the system, disclosing and attributing the external software, frameworks and tools we used to build the system.
 

@@ -1,28 +1,28 @@
-\chapter{Literature \& Technology Survey}
+\chapter{Literature \& Technology Survey} \label{littechsurvey}
 \section{Introduction}
 Throughout this chapter, we explore existing technologies, reviewing what areas of the problem they solve and which requirements they are lacking.
 We also seek to confirm the need for such a technology to fully solve the issues we have identified, through researching the problem domain via published literature.
 
 \section{Overview}
-One of the expected outcomes of this dissertation is an online, collaborative platform to facilitate cross and multi project code reuse, effective code searching, and code sharing and peer review.
+One of the expected outcomes of this dissertation is an online, collaborative platform to facilitate small scale code reuse and code sharing via peer review.
 
-To begin, we must identify key points surrounding the current state of cross project code reuse:
+To begin, we must identify key points surrounding the current state of small scale code reuse:
 
 
 \begin{itemize}
 \item Has code reuse evolved over time, and how?
-\item What tools are there currently that attempt to partially or completely fulfil the goal of cross project, multi user code reuse?
+\item What tools are there currently that attempt to partially or completely fulfil the goal of small scale code reuse?
 \item What core features can we draw from these tools for our ideal solution?
 \item What usability features do these tools implement and utilise?
 \end{itemize}
 
 
-The majority of this chapter will explore each of these points in detail, with a focus on personal, smaller scale code reuse, which will be what is primarily referred to by the term '\textit{code reuse}'. 
+The majority of this chapter will explore each of these points in detail, with a focus on small scale code reuse, which will be what is primarily referred to by the term `\textit{code reuse}'. 
 
 By the end of this chapter, we expect to have sufficiently explored this problem domain, including literature published on it and current technologies available for it, and ultimately conclude whether there are adequate tools to address the problem of small scale code reuse, and if not, why.
 
 \section{Has code reuse evolved over time, and how?}
-As previously established in Chapter 2, code reuse in some primitive form has existed since the advent of coding itself, with programmers simply sharing pieces of code between them. 
+As previously established in section \ref{codereusehistory}, code reuse in some primitive form has existed since the advent of coding itself, with programmers simply sharing pieces of code between them. 
 Also established is that the research into code reuse can be traced back to Douglas McIlroy in 1968, and his proposal for the software industry to be based on reusable components \cite{Naur1969,Jacobson1997}. 
 
 Douglas saw the software industry in the same light as he saw a manufacturing industry - parts should be purchasable from suppliers to be used in building a more complex system, such as purchasing the individual parts required to build a car. He envisioned catalogues of interchangeable routines built to particular specifications that could be purchased and used, such as tyres for a vehicle, and their many technical specifications.
@@ -51,9 +51,9 @@ Figure \ref{vzeroflow}. (PayPal Developer Website - Accessed 26th January 2016) 
 \caption{PayPal's V.Zero Generic Application Flow \label{vzeroflow}}
 \end{figure}
 
-This demonstrates the commercialisation of Douglas' ideas, but this is not the only evolution of reuse, specifically for the personal code reuse of the small-scale developer demographic.
+This demonstrates the commercialisation of Douglas' ideas, but this is not the only evolution of reuse, specifically for the  code reuse of the small-scale developer demographic.
 However, comparatively less literature has been published and few research efforts made regarding such a demographic, as noted by \cite{Norton2003a} and \cite{Hsieh2006}. 
-The majority of literature refers to large software organisations, but there is considerable need for personal code reuse as well. 
+The majority of literature refers to large software organisations, but there is considerable need for small scale code reuse as well. 
 Norton notes that the majority of small-scale reuse is ad hoc and unstructured, whereas structuring such reuse would enable the developer to become much more efficient with their reuse, and so improve the benefits of engaging with it.
 The history of such personal reuse, therefore, is difficult to research, but Norton and Min-Sheng both note that there is no obvious practice or standard in place, unlike component-based software engineering.
 
@@ -62,9 +62,9 @@ Therefore, it is clear that code reuse remains a popular concept, and one which 
 However, small-scale code reuse has been given far less attention, despite it being applicable for individuals throughout their careers, and specifically those that work in relative isolation, such as students, hobbyists, consultants or freelancers \cite{Norton2003a}. 
 Therefore, in the next section, we turn to industry, to seek and analyse potential tools these developers could use that have been built as products instead of research, as well as those available for larger organisations and the industry as a whole.
 
-\section{What tools are there currently that attempt to partially or completely fulfil the goal of cross project, multi user code reuse?}
+\section{What tools are there currently that attempt to partially or completely fulfil the goal of small scale code reuse?}
 In this section we will take a look at existing technologies related to the problem domain and analyse their functionality. 
-At the end of the section, we list a set of features these tools may possess, related to fulfilling the original problem description set out in chapter 2, and examine how completely the tools fulfil these requirements.
+At the end of the section, we list a set of features these tools may possess, related to fulfilling the original problem description set out in section \ref{probdesc}, and examine how completely the tools fulfil these requirements.
 
 The technologies below were chosen for a number of reasons, including the author's knowledge of the industry and code reuse, google searches for code reuse tools and similar keywords, and popular technologies. 
 For example, git and GitHub are industry-standard project repositories and implement sophisticated version control and project management tools, so git was chosen based on its widespread use and popularity.
@@ -72,19 +72,19 @@ For example, git and GitHub are industry-standard project repositories and imple
 In contrast, Snipplr was found from a search on google using key words “code snippet reuse tool”, and was selected on its immediate similarity to the author's suspected final solution, however, further analysis would reveal that several key features are missing. 
 Finally, the author of this dissertation has experience with several of the tools listed, such as Stack Overflow, and so these tools were included as potential solutions in need of further analysis.
 
-The technologies are presented in ascending order of the author's perceived 'fit for solution', beginning with those which least fit the author's imagined ideal solution. 
+The technologies are presented in ascending order of the author's perceived `fit for solution', beginning with those which least fit the author's imagined ideal solution. 
 This ideal solution draws from a number of aspects, including the author's personal experience with code reuse, the literature discussed earlier within this chapter and in hindsight of the below complete analysis of the listed technologies. 
 We begin with a minimalist code paste tool, Codepad.org.
 
 \textbf{A} - \textit{Codepad.org} is an online compiler/interpreter that has paste dump capabilities. 
 It allows users to type or paste code from one of 12 languages in to a multiline text box, and then it runs that code and outputs a short URL containing both the source code and any runtime output, which can then be shared by the end user. 
-It is a minimalist code share tool, where source can be saved as 'pastes', and shared via URL. 
+It is a minimalist code share tool, where source can be saved as `pastes', and shared via URL. 
 There is little other functionality, other than the ability to make a paste private or save a paste to your account.
 
-\textbf{B} - \textit{Pastebin.com} is similar to Codepad, in that it facilitates 'copy paste' code sharing via a short URL, but does not run the code. 
-It was created in 2002, but was not a popular platform until 2010, when it had achieved 1 million 'active' pastes \cite{Kumparak2011}. 
+\textbf{B} - \textit{Pastebin.com} is similar to Codepad, in that it facilitates `copy, paste' code sharing via a short URL, but does not run the code. 
+It was created in 2002, but was not a popular platform until 2010, when it had achieved 1 million `active' pastes \cite{Kumparak2011}. 
 In June 2015 this number was more than 65 million active pastes. 
-Pastebin contains more options than Codepad such as language specific syntax highlighting, paste expiration settings, public or private pastes as well as giving it a title, but again does not expand further than simply 'code paste' sharing. 
+Pastebin contains more options than Codepad such as language specific syntax highlighting, paste expiration settings, public or private pastes as well as giving it a title, but again does not expand further than simply `code paste' sharing. 
 Pastebin also exposes an API to allow other tools to utilise its method of sharing, though most seem to be browser plugins. 
 These can be seen on the pastebin website, under tools.
 
@@ -246,7 +246,7 @@ We can see that GitHub's Gist ties in their paste dump service with the other fe
 \textit{Publicity settings and Snippet Meta Data} are two more features commonly seen throughout our chosen technologies.
 Each were seen in seven of the nine technologies, suggesting they are also key features of the technology.
 Publicity settings did not appear in the IDE \& Plugins or on Stack Overflow, though this is likely due to the nature of the two technologies - the IDE \& Plugins were offline and specifically designed for one person, so would not need publicity settings, and Stack Overflow, being a collaborative Q\&A system, would not function with publicity settings.
-It would, however, be possible for Stack Overflow to implement a group privacy setting to restrict certain questions from only being answered by set groups, though this is not something I witnessed.
+It would, however, be possible for Stack Overflow to implement a group privacy setting to restrict certain questions from only being answered by set groups, though this is not something we witnessed.
 
 \textit{Group privacy}, instead, is implemented by a subset of the technologies which implemented publicity settings, by only Google Docs, git, Gists and Codebase.
 The author of this dissertation feels this feature is important when considering functionality of the envisioned system, as it would allow for groups or institutions to utilise the technology and restrict access to only its members.
@@ -260,8 +260,12 @@ Human beings are utility-maximizers \cite{Cognition1997} - that is to say, they 
 Users may remember a piece of code, but not when or for what they developed it, which makes finding and reusing the code difficult or more cumbersome.
 A reuse repository requires that finding and reusing the code be more efficient than simply rewriting it, which in turn requires that searching the repository be fast and efficient.
 If one must spend 10 minutes recalling the code, and another 10 searching for it, when it could have been written in 15 minutes, the repository is not fit for purpose and instead negatively impacts the developer.
-To this end, advanced searching and sorting is a key component of the ideal solution, and therefore, the technologies that do not implement this feature are far less likely to fully encompass the requirements of our expected deliverable.
-Consequently, we shall focus on Stack Overflow when we research further into advanced search and sorting, to identify how it should be implemented in the final deliverable.
+To this end, advanced searching and sorting is an important component of the ideal solution, and therefore, the technologies that do not implement this feature are far less likely to fully encompass the requirements of our expected deliverable.
+
+This being said, advanced search and sorting is a greatly indepth topic, which could span the pages of many dissertations over. 
+Due to constraints on this project, we leave this advanced search and sorting for Future Work, where such a level of detail can truly be explored.
+
+/subsection{Summary}
 
 We have discussed the core features of these technologies and explained the reasons behind why they are important.
 This has shown that no single technology fully encompasses these requirements despite their relevancy in the final deliverable, and would suggest that the final deliverable itself will be a new technology, built from the core criteria researched above.
@@ -269,7 +273,7 @@ This has shown that no single technology fully encompasses these requirements de
 Having established these core criteria for our system, we can now begin to look at optional features that the existing technologies implement - usability features that aren't necessary for full functionality, but that improve the day to day usage of these specific tools.
 In the next section, we discuss the most prominent usability features pulled from our set of technologies, and evaluate how each tool improves the quality of the software and its use.
 
-\section{What usability features do these tools implement and utilise?}
+\section{What usability features do these tools implement and utilise?} \label{optionalfeatures}
 The discussed technologies implement a large array of usability features, ranging from user interface additions or backend functionality, to user-to-user interaction or organisation tools.
 For this reason, noteworthy features have been extracted from the technologies and grouped in to categories, then given a brief description to aid understanding.
 The categories were chosen by the author in an attempt to encompass fully the selected optional features, and provide a logical categorising for analysis.
@@ -388,11 +392,12 @@ For example, \textit{Third Party Tools} enable the technology to fit more easily
 User interaction facilitates two of the core features, collaboration and peer review, and as such, these optional features play an important role in the final system.
 Finally, \textit{Content Navigation} makes up a large bulk of the optional features, which is to be expected, as the technology will be responsible for storing, categorising and retrieving content in the form of submissions and as such, these features will focus heavily throughout the technology.
 
-The next step for the optional features is to describe their priority relative to each other.
-In the next chapter, we delve into this task, and present opinions collected from an array of end users, including industry professionals from a range of companies, and undergraduate students studying Computer Science.
-Ultimately, we intend to finalise the requirements for the deliverable.
+\subsection{Summary}
 
-\section{Conclusions}
+The next step for the optional features is to describe their priority relative to each other.
+We delve into this task in the next chapter, by finalising the requirements of the system, and categorising them by priority.
+
+\section{Conclusion} \label{littechconclusion}
 As stated at the start of this chapter, our goal throughout this section was to determine whether the problem domain of small scale code reuse has been sufficiently explored, and whether there are adequate technologies currently that address the domain.
 We explored the history of code reuse, from its roots up to its modern day evolution, and discovered that, although papers on reuse are not uncommon, those focused on individual or small scale reuse are sparse, and this has been noted in several published works.
 
@@ -403,9 +408,12 @@ Unfortunately, none of the technologies managed to fully encompass all these req
 Further to the core features, we identified many optional features that promote user experience.
 These were aggregated from the technologies we described, and will be used in practical research to help mould the deliverable we intend to create.
 This practical research will be conducted with the help of professionals from multiple industries, and students in educational institutions.
-We will utilise their input and knowledge from their own code reuse experiences, and collaborate their feedback and opinions into the requirements and design phase throughout the next chapter.
+Ultimately this will form the foundation of our studies, found later in the dissertation.
 
-To conclude, we feel there has not been adequate research in to small scale code reuse, nor is there a sufficient technology able to fully address the needs of the code reuser.
-We intend to design, construct and evaluate such a technology in an open source environment, with the desire of improving small scale, cross project code reuse.
+To conclude, research has shown that small scale code reuse remains a less explored avenue of code reuse, despite its prominence in many developers' professions, and that there is scope for more focused research in this area.
+It has also been shown that there is currently no sufficient technology fully capable of addressing the needs of  small scale code reuse, and further development is possible.
+
+Therefore, it is our intention to design, construct and evaluate such a technology, with the desire of improving small scale, cross project code reuse.
+We intend this technology to be web based, due to the author's experience in web development, and the ease of collaboration that a website brings.
 The first step for this begins in our next chapter: the requirements and design for such a system.
 
