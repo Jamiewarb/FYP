@@ -73,7 +73,7 @@ if (!$datas) {
 						</button>
 						<p><strong>Welcome to Shnip.it!</strong></p>
 						<p>We are a snippet repository with a focus on collaboration and cross-project code to help you reuse the best snippets.<br>
-						Get started by viewing some of our public snippets below, or <a href="#" class="alert-link">create one of your own!</a></p> 
+						Get started by viewing some of our public snippets below, or <a href="create-snippet" class="alert-link">create one of your own!</a></p> 
 					</div>
 				</div>
 			</div>

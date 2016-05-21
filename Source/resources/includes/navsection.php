@@ -44,13 +44,13 @@
 			</ul>
 		  </li>
 
-		  <li class="dropdown">
+		  <!--<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
 			<ul class="dropdown-menu">
 			  <li><a href="project">Project</a></li>
 			  <li><a href="team">The Team</a></li>
 			</ul>
-		  </li>
+		  </li>-->
 
 		  <?php if (loggedIn()) { 
 		  	$user = $_SESSION['login_user']['username']; ?>
